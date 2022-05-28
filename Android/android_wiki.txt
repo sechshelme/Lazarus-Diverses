@@ -1,0 +1,133 @@
+== Android und Lazarus unter Linux Mint ==
+Wer unter Linux mit Lazarus nach Android kompilieren möchte muss einiges an Einstellungen
+vornehmen. Ich habe es ausschließlich unter Linux Mint 19.3 Cinnamon 64bit getestet. Zuerst in
+einer Virtualbox Version.
+Meine Quelle:
+https://forum.lazarus.freepascal.org/index.php/topic,40750.msg281604.html#msg281604
+https://forum.lazarus.freepascal.org/index.php/topic,38777.msg264419.html#msg264419
+https://wiki.lazarus.freepascal.org/LAMW
+Ich habe mich dazu entschieden das Modul LAMW zu verwenden, es läuft auch unter Linux und
+nimmt einem beim Einrichten der Lazarus IDE sehr viel Arbeit ab!
+Liste von Android Versionen: https://de.wikipedia.org/wiki/Liste_von_Android-VersionenDie in fpcupdeluxe derzeit verwendete LAMW (LazarusAndroidModulWizard) Version benötigt
+folgende Voraussetzungen:
+
+So gehts los: Bitte folgendes ins Terminal eingeben:
+<syntaxhighlight lang="bash">
+sudo apt-get install -y libx11-dev libgtk2.0-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev libxtst-dev libatk1.0-dev libghc-x11-dev freeglut3 freeglut3-dev
+sudo apt-get install -y git subversion make build-essential gdb zip unzip unrar wget
+sudo apt-get install -y openjdk-8-jdk android-tools-adb ant
+#der nächste Befehl war bei mir nicht nötig:
+sudo update-java-alternatives --set /usr/lib/jvm/java-1.8.0-openjdk-amd64
+#legt ein Verzeichnis an:
+mkdir -p "$HOME/Programme/android"
+</syntaxhighlight>
+Folgende Programme downloaden und in den Ordner home/Benutzername/Programme/android
+kopieren und dort extrahieren:
+Verschiedene Versionen von Gradle findet man hier (ich nahm 4.4.1, sonst Befehle anpassen):
+https://gradle.org/releases/ dort auf binary only klicken
+Android SDK findet man hier:
+http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+Nachdem die Datei nach android kopiert und dort entpackt wurde das Verzeichnis android-sdk-linux
+in sdk umbenennen.
+
+Ins Terminal wechseln und ins Verzeichnis tools wechseln.
+<syntaxhighlight lang="bash">
+cd /home/bernd/Programme/android/sdk/tools
+./android
+</syntaxhighlight>
+eingeben. Jetzt startet der SDK-Manager.
+Es ist die neuste Version Android 10 (API29) vorausgewählt.
+
+Die 3 Häckchen SDK Tools, SDK Platform-tools und SDK Build-tools drin lassen.
+Zusätzlich noch die Build-tools 27.0.3 anwählen (werden für 28 und 29 zusätzlich benötigt)
+
+"Tools --> Android SDK Build-tools - 27.0.3
+"Extras --> Android Support Repository"
+"Extras --> Google Play service"
+"Extras --> Google Repository"
+
+Bei "Android R" alles eintfernen ?????????????
+
+Bei Android 10 (API29) benötigt man nur die SDK Platform. Die anderen Haken entfernen. Die
+Systemimages werden nur benötigt wenn man zum Testen einen Emulator anlegen möchte. Ich
+möchte erst mal auf einen alten Handy testen.
+[Wer eine ältere Version nehmen möchte muss die dem entsprechende SDK Platform wählen bzw.
+die passenden Build-tools nehmen. Zum Beispiel SDK Platform von API 25 mit SDK Buil-tools
+25.0.3. Es muss dann aber auch die passende NDK Datei ausgesucht werden. Für API 25
+funktionierte bei mir android-ndk-r10e-linux-x86_64. ]
+
+Jetzt das aktuelle NDK downloaden:
+https://developer.android.com/ndk/downloads
+Bei mir war es android-ndk-r21-linux-x86_64. Diese Datei nach Programme/android/sdk kopieren
+und dort entpacken. Den Ordner anschließend in ndk-bundle umbenennen.
+Jetzt im Terminal folgende Links anlegen:
+<syntaxhighlight lang="bash">
+ln -sf "$HOME/Programme/android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin" "$HOME/Programme/android/ndk-toolchain"
+ln -sf "$HOME/Programme/android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9" "$HOME/Programme/android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9"
+ln -sf "$HOME/Programme/android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9" "$HOME/Programme/android/sdk/ndk-bundle/toolchains/mipsel-linux-android-4.9"
+</syntaxhighlight>
+
+Die Datei ./profile mit rechter Maustaste anklicken und mit Textbearbeitung öffnen wählen. Ganz
+unten folgendes einfügen und speichern:
+
+<syntaxhighlight lang="text">
+export ANDROID_SDK_ROOT="${HOME}/Programme/android/sdk"
+export GRADLE_HOME="${HOME}/Programme/android/gradle-4.4.1"
+export PATH="${PATH}:${HOME}/Programme/android/ndk-toolchain"
+export PATH="${PATH}:${GRADLE_HOME}/bin"
+</syntaxhighlight>
+
+Jetzt abmelden und wieder anmelden oder den PC neustarten.
+
+Nun fpcupdeluxe starten. Ich empfehle für den Android Crosscompiler zusätzlich ein eigenes
+Lazarus zu installieren. Nach der Installation von Lamw wurden bei mir die Einstellungen der
+Lazarus IDE durcheinander gewürfelt.
+Die Cross Compiler für arm und i386 lassen sich mit den stable Versionen installieren. Der Cross
+Compiler für aarch64 nur mit der trunk. Ich habe mich deshalb hier für die trunk Versionen
+entschieden. Achtung: das neue Lazarus in ein anderes Verzeichnis als das schon vorhandene
+installieren.
+
+
+In Lazarus unter Tools, Options, General die Sprache auf deutsch umstellen. Lazarus neu starten.
+Folgende Versionen wurden bei mir installiert:
+
+== LAMW mit fpcupdeluxe installieren ==
+Als nächstes noch lamw (falls noch nicht vorhanden) installieren:
+LAMW Manager :"Ein Installationsprogramm zum Generieren der Lazarus IDE [und aller
+erforderlichen Komponenten!], angefertigt um für Android zu entwickeln!
+zu lamw: https://wiki.lazarus.freepascal.org/LAMW
+In fpcupdeluxe auf Modules gehen, dort:
+
+"Modules->lamw->Install module"
+
+"Cross --> i386" Hacken    ???? arm
+"Cross --> android" Hacken
+"Install compiler"
+Fehler mit "Ja" bestätigen.
+
+Nun "Werkzeuge --> [LAMW] Android Module Wizard --> Paths Settings [Jdk,Sdk,Ndk]"
+
+"Path to Java JDK" -->  /usr/lib/jvm/java-11-openjdk-amd64
+"Path to Ant bin:" -->  /usr/bin
+"Path to Gradle" -->  /home/tux/Programme/android/gradle-4.4.1
+"Path to Android NDK" --> /home/tux/Programme/android/sdk/ndk-bundle
+"NDK Version" --> 11
+"Path to Android SDK" --> /home/tux/Programme/android/sdk
+
+Als nächstes "Datei --> Neu --> Project --> LAMW[GUI]Android Module"
+"Ok"
+
+"Path to Workspace" --> /home/tux/android_test 
+"Architekture/Instructions" --> x86  ?????
+
+
+
+
+
+
+
+
+
+
+
+
