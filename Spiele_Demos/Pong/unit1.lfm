@@ -1,0 +1,39 @@
+object Form1: TForm1
+  Left = 425
+  Height = 537
+  Top = 229
+  Width = 659
+  Caption = 'Form1'
+  ClientHeight = 537
+  ClientWidth = 659
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  LCLVersion = '1.8.0.5'
+  object Shape1: TShape
+    Left = 16
+    Height = 232
+    Top = 72
+    Width = 17
+  end
+  object Shape2: TShape
+    Left = 48
+    Height = 233
+    Top = 72
+    Width = 17
+  end
+  object Shape3: TShape
+    Left = 32
+    Height = 24
+    Top = 336
+    Width = 25
+    Shape = stCircle
+  end
+  object Timer1: TTimer
+    Interval = 10
+    OnTimer = Timer1Timer
+    left = 132
+    top = 88
+  end
+end

@@ -1,0 +1,32 @@
+object Form1: TForm1
+  Left = 588
+  Height = 506
+  Top = 186
+  Width = 801
+  Caption = 'Form1'
+  ClientHeight = 506
+  ClientWidth = 801
+  LCLVersion = '1.8.0.6'
+  object Image2: TImage
+    Left = 24
+    Height = 408
+    Top = 8
+    Width = 456
+    Stretch = True
+  end
+  object BitBtn1: TBitBtn
+    Left = 200
+    Height = 30
+    Top = 440
+    Width = 75
+    Caption = 'BitBtn1'
+    OnClick = BitBtn1Click
+    TabOrder = 0
+  end
+  object Image1: TImage
+    Left = 655
+    Height = 90
+    Top = 189
+    Width = 90
+  end
+end

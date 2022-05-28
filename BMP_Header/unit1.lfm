@@ -1,0 +1,40 @@
+object Form1: TForm1
+  Left = 590
+  Height = 240
+  Top = 192
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '1.6.4.0'
+  object Button1: TButton
+    Left = 104
+    Height = 25
+    Top = 64
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Image1: TImage
+    Left = 96
+    Height = 90
+    Top = 136
+    Width = 90
+    Picture.Data = {
+      07544269746D617046000000424D460000000000000036000000000000000200
+      0000020000000100200000000000000000000000000000000000000000000000
+      0000FF0000FF00FF00FF0000FFFFFF0000FF
+    }
+    Stretch = True
+  end
+  object Button2: TButton
+    Left = 226
+    Height = 25
+    Top = 38
+    Width = 75
+    Caption = 'Button2'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+end

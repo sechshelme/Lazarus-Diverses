@@ -1,0 +1,31 @@
+object Form1: TForm1
+  Left = 478
+  Height = 240
+  Top = 292
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  LCLVersion = '1.7'
+  object ShapePacman: TShape
+    Left = 80
+    Height = 65
+    Top = 48
+    Width = 65
+  end
+  object ShapeBall: TShape
+    Left = 152
+    Height = 30
+    Top = 176
+    Width = 24
+    Shape = stCircle
+  end
+  object Timer1: TTimer
+    Interval = 10
+    OnTimer = Timer1Timer
+    left = 199
+    top = 61
+  end
+end

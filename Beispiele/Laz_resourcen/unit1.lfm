@@ -1,0 +1,36 @@
+object Form1: TForm1
+  Left = 573
+  Height = 372
+  Top = 91
+  Width = 683
+  Caption = 'Form1'
+  ClientHeight = 372
+  ClientWidth = 683
+  OnCreate = FormCreate
+  LCLVersion = '1.5'
+  object BitBtn1: TBitBtn
+    Left = 72
+    Height = 30
+    Top = 192
+    Width = 75
+    Caption = 'BitBtn1'
+    OnClick = BitBtn1Click
+    TabOrder = 0
+  end
+  object Memo1: TMemo
+    Left = 8
+    Height = 90
+    Top = 16
+    Width = 150
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 1
+  end
+  object Image1: TImage
+    Left = 160
+    Height = 306
+    Top = 16
+    Width = 434
+  end
+end

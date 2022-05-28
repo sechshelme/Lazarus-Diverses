@@ -1,0 +1,72 @@
+object Frame1: TFrame1
+  Left = 0
+  Height = 98
+  Top = 0
+  Width = 470
+  Anchors = [akTop, akLeft, akRight]
+  ClientHeight = 98
+  ClientWidth = 470
+  TabOrder = 0
+  DesignLeft = 730
+  DesignTop = 220
+  object Panel1: TPanel
+    Left = 0
+    Height = 98
+    Top = 0
+    Width = 470
+    Align = alClient
+    ClientHeight = 98
+    ClientWidth = 470
+    TabOrder = 0
+    object Button1: TButton
+      Left = 8
+      Height = 25
+      Top = 5
+      Width = 75
+      Caption = 'Start'
+      OnClick = ButtonClick
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Tag = 1
+      Left = 88
+      Height = 25
+      Top = 5
+      Width = 75
+      Caption = 'Stop'
+      Enabled = False
+      OnClick = ButtonClick
+      TabOrder = 1
+    end
+    object Button3: TButton
+      Tag = 2
+      Left = 168
+      Height = 25
+      Top = 5
+      Width = 75
+      Caption = 'Reset'
+      Enabled = False
+      OnClick = ButtonClick
+      TabOrder = 2
+    end
+    object Label1: TLabel
+      Left = 256
+      Height = 20
+      Top = 5
+      Width = 80
+      Caption = '--:--:--'
+      Font.Height = 20
+      Font.Name = 'Ubuntu Mono'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = Timer1Timer
+    Left = 288
+    Top = 16
+  end
+end

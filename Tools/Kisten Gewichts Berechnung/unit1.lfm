@@ -1,0 +1,274 @@
+object Form1: TForm1
+  Left = 586
+  Height = 222
+  Top = 165
+  Width = 508
+  HorzScrollBar.Page = 501
+  VertScrollBar.Page = 166
+  ActiveControl = Edit1
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Kisten Gewichtsberechnung'
+  ClientHeight = 222
+  ClientWidth = 508
+  Color = 1359832
+  Position = poDefault
+  LCLVersion = '1.0.14.0'
+  object Label1: TLabel
+    Left = 8
+    Height = 22
+    Top = 16
+    Width = 47
+    Caption = 'Länge'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 22
+    Top = 48
+    Width = 46
+    Caption = 'Breite'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 22
+    Top = 83
+    Width = 42
+    Caption = 'Höhe'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 232
+    Height = 22
+    Top = 16
+    Width = 102
+    Caption = 'Gewicht / m2'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 456
+    Height = 22
+    Top = 13
+    Width = 21
+    Caption = 'Kg'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 152
+    Height = 22
+    Top = 16
+    Width = 24
+    Caption = 'cm'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 152
+    Height = 22
+    Top = 48
+    Width = 24
+    Caption = 'cm'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 152
+    Height = 22
+    Top = 83
+    Width = 24
+    Caption = 'cm'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 232
+    Height = 22
+    Top = 48
+    Width = 126
+    Caption = 'Oberfläche Kiste'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 456
+    Height = 22
+    Top = 48
+    Width = 25
+    Caption = 'm2'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 232
+    Height = 22
+    Top = 120
+    Width = 75
+    Caption = 'Tara Kiste'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 456
+    Height = 22
+    Top = 123
+    Width = 21
+    Caption = 'Kg'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 384
+    Height = 22
+    Top = 48
+    Width = 22
+    Caption = '???'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label14: TLabel
+    Left = 384
+    Height = 22
+    Top = 123
+    Width = 22
+    Caption = '???'
+    Font.Color = clRed
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Edit1: TEdit
+    Left = 64
+    Height = 29
+    Top = 13
+    Width = 80
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 0
+    Text = '150'
+  end
+  object Edit2: TEdit
+    Left = 64
+    Height = 29
+    Top = 48
+    Width = 80
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 1
+    Text = '120'
+  end
+  object Edit3: TEdit
+    Left = 64
+    Height = 29
+    Top = 83
+    Width = 80
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 2
+    Text = '50'
+  end
+  object BitBtn1: TBitBtn
+    Left = 96
+    Height = 30
+    Top = 168
+    Width = 144
+    Caption = '&Berechnen'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    Kind = bkRetry
+    NumGlyphs = 0
+    OnClick = BitBtn1Click
+    ParentFont = False
+    TabOrder = 3
+  end
+  object BitBtn2: TBitBtn
+    Left = 272
+    Height = 30
+    Top = 168
+    Width = 152
+    Cancel = True
+    Caption = 'B&eenden'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    Kind = bkCancel
+    NumGlyphs = 0
+    OnClick = BitBtn2Click
+    ParentFont = False
+    TabOrder = 4
+  end
+  object Edit4: TEdit
+    Left = 390
+    Height = 29
+    Top = 13
+    Width = 48
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 5
+    Text = '13'
+  end
+  object Label15: TLabel
+    Left = 233
+    Height = 22
+    Top = 83
+    Width = 112
+    Caption = 'Volumen Kiste'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label16: TLabel
+    Left = 385
+    Height = 22
+    Top = 83
+    Width = 22
+    Caption = '???'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label17: TLabel
+    Left = 456
+    Height = 22
+    Top = 83
+    Width = 25
+    Caption = 'm3'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+end

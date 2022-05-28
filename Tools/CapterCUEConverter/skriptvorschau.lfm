@@ -1,0 +1,60 @@
+object SkriptForm: TSkriptForm
+  Left = 1796
+  Height = 497
+  Top = 440
+  Width = 573
+  Caption = 'SkriptForm'
+  ClientHeight = 497
+  ClientWidth = 573
+  LCLVersion = '1.7'
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 447
+    Width = 573
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 573
+    TabOrder = 0
+    object BitBtn2: TBitBtn
+      Left = 120
+      Height = 30
+      Top = 8
+      Width = 88
+      Cancel = True
+      DefaultCaption = True
+      Kind = bkCancel
+      ModalResult = 2
+      TabOrder = 0
+    end
+    object BitBtn1: TBitBtn
+      Left = 16
+      Height = 30
+      Top = 8
+      Width = 83
+      Caption = '&Speichern'
+      Default = True
+      Kind = bkOK
+      ModalResult = 1
+      TabOrder = 1
+    end
+  end
+  object RichMemo1: TRichMemo
+    Left = 0
+    Height = 447
+    Top = 0
+    Width = 573
+    Align = alClient
+    Color = clBlack
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clMedGray
+    Font.Height = -11
+    Font.Name = 'System'
+    Font.Style = [fsBold]
+    HideSelection = False
+    ParentFont = False
+    TabOrder = 1
+    WordWrap = False
+    ZoomFactor = 1
+  end
+end

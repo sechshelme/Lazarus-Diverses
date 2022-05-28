@@ -1,0 +1,30 @@
+object Form1: TForm1
+  Left = 800
+  Height = 725
+  Top = 71
+  Width = 771
+  Caption = 'Form1'
+  ClientHeight = 725
+  ClientWidth = 771
+  OnCreate = FormCreate
+  LCLVersion = '1.7'
+  object DrawGrid1: TDrawGrid
+    Left = 95
+    Height = 100
+    Top = 67
+    Width = 200
+    ExtendedSelect = False
+    TabOrder = 0
+    OnDrawCell = DrawGrid1DrawCell
+    OnSelection = DrawGrid1Selection
+  end
+  object Button1: TButton
+    Left = 429
+    Height = 25
+    Top = 117
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end

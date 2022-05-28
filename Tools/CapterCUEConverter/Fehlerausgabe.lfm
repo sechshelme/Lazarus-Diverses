@@ -1,0 +1,31 @@
+object Form2: TForm2
+  Left = 452
+  Height = 306
+  Top = 1026
+  Width = 342
+  Caption = 'Ausgabeform'
+  ClientHeight = 306
+  ClientWidth = 342
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  LCLVersion = '1.7'
+  object RichMemo1: TRichMemo
+    Left = 0
+    Height = 306
+    Top = 0
+    Width = 342
+    Align = alClient
+    Color = clBlack
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clMedGray
+    Font.Height = -11
+    Font.Name = 'System'
+    Font.Style = [fsBold]
+    HideSelection = False
+    ParentFont = False
+    TabOrder = 0
+    ZoomFactor = 1
+  end
+end

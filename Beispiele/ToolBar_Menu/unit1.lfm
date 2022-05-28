@@ -1,0 +1,98 @@
+object Form1: TForm1
+  Left = 879
+  Height = 714
+  Top = 195
+  Width = 651
+  Caption = 'Form1'
+  ClientHeight = 714
+  ClientWidth = 651
+  LCLVersion = '1.7'
+  object Panel1: TPanel
+    Left = 160
+    Height = 200
+    Top = 136
+    Width = 345
+    Caption = 'Panel1'
+    ClientHeight = 200
+    ClientWidth = 345
+    TabOrder = 0
+    object ToolBar1: TToolBar
+      Left = 1
+      Height = 26
+      Top = 1
+      Width = 343
+      Caption = 'ToolBar1'
+      ShowCaptions = True
+      TabOrder = 0
+      object ToolButton1: TToolButton
+        Left = 1
+        Top = 2
+        Caption = 'MenuItem1'
+        MenuItem = MenuItem1
+      end
+      object ToolButton2: TToolButton
+        Left = 74
+        Top = 2
+        Caption = 'MenuItem2'
+        MenuItem = MenuItem2
+      end
+      object ToolButton3: TToolButton
+        Left = 147
+        Top = 2
+        Caption = 'MenuItem3'
+        MenuItem = MenuItem3
+      end
+    end
+    object Memo1: TMemo
+      Left = 1
+      Height = 172
+      Top = 27
+      Width = 343
+      Align = alClient
+      Lines.Strings = (
+        'Memo1'
+      )
+      TabOrder = 1
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 89
+    top = 79
+    object MenuItem1: TMenuItem
+      Caption = 'MenuItem1'
+      object MenuItem4: TMenuItem
+        Caption = 'MenuItem4'
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'MenuItem5'
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'MenuItem6'
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'MenuItem2'
+      object MenuItem7: TMenuItem
+        Caption = 'MenuItem7'
+      end
+      object MenuItem8: TMenuItem
+        Caption = 'MenuItem8'
+      end
+      object MenuItem9: TMenuItem
+        Caption = 'MenuItem9'
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'MenuItem3'
+      object MenuItem10: TMenuItem
+        Caption = 'MenuItem10'
+      end
+      object MenuItem11: TMenuItem
+        Caption = 'MenuItem11'
+      end
+      object MenuItem12: TMenuItem
+        Caption = 'MenuItem12'
+      end
+    end
+  end
+end

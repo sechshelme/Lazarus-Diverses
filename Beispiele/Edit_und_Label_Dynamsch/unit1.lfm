@@ -1,0 +1,29 @@
+object Form1: TForm1
+  Left = 868
+  Height = 617
+  Top = 120
+  Width = 778
+  Caption = 'Form1'
+  ClientHeight = 617
+  ClientWidth = 778
+  OnCreate = FormCreate
+  LCLVersion = '1.7'
+  object Panel1: TPanel
+    Left = 0
+    Height = 577
+    Top = 40
+    Width = 778
+    Align = alBottom
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Berechnen'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end

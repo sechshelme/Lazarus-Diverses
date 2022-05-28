@@ -1,0 +1,24 @@
+object Form1: TForm1
+  Left = 500
+  Height = 240
+  Top = 588
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnMouseDown = FormMouseDown
+  LCLVersion = '1.5'
+  object Shape1: TShape
+    Left = 0
+    Height = 65
+    Top = 0
+    Width = 65
+    Brush.Color = clRed
+  end
+  object Timer1: TTimer
+    Interval = 40
+    OnTimer = Timer1Timer
+    left = 84
+    top = 185
+  end
+end

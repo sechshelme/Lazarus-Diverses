@@ -1,0 +1,41 @@
+object Form1: TForm1
+  Left = 82
+  Height = 240
+  Top = 553
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnPaint = FormPaint
+  OnShow = FormShow
+  LCLVersion = '1.5'
+  object Edit1: TEdit
+    Left = 24
+    Height = 73
+    Top = 136
+    Width = 256
+    Font.Height = -53
+    Font.Name = 'Impact'
+    OnChange = Edit1Change
+    ParentFont = False
+    TabOrder = 0
+    Text = 'Edit1'
+  end
+  object Button1: TButton
+    Left = 176
+    Height = 25
+    Top = 96
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    left = 281
+    top = 103
+  end
+end

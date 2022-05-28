@@ -1,0 +1,22 @@
+object Form1: TForm1
+  Left = 562
+  Height = 240
+  Top = 0
+  Width = 370
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 370
+  Color = clWindow
+  OnCreate = FormCreate
+  LCLVersion = '1.9.0.0'
+  object ScrollBox1: TScrollBox
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 370
+    HorzScrollBar.Page = 1
+    VertScrollBar.Page = 1
+    Align = alClient
+    TabOrder = 0
+  end
+end

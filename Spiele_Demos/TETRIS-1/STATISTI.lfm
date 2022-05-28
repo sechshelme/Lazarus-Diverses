@@ -1,0 +1,18 @@
+object StatistikBox: TStatistikBox
+  Left = 701
+  Height = 53
+  Top = 101
+  Width = 174
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Tetris - Statistik'
+  Color = 96
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'MS Sans Serif'
+  FormStyle = fsStayOnTop
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnPaint = FormPaint
+  LCLVersion = '1.7'
+end

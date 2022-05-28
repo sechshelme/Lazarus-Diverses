@@ -1,0 +1,60 @@
+object Form1: TForm1
+  Left = 320
+  Height = 240
+  Top = 235
+  Width = 686
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 686
+  OnMouseWheel = FormMouseWheel
+  OnMouseWheelDown = FormMouseWheelDown
+  LCLVersion = '1.8.0.6'
+  object Label1: TLabel
+    Left = 48
+    Height = 15
+    Top = 40
+    Width = 32
+    Caption = '1234'
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    ParentColor = False
+    ParentFont = False
+    OnClick = LabelClick
+  end
+  object Label2: TLabel
+    Left = 48
+    Height = 15
+    Top = 64
+    Width = 32
+    Caption = '0000'
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    ParentColor = False
+    ParentFont = False
+    OnClick = LabelClick
+  end
+  object Label3: TLabel
+    Left = 48
+    Height = 15
+    Top = 88
+    Width = 80
+    Caption = '1234567890'
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    ParentColor = False
+    ParentFont = False
+    OnClick = LabelClick
+  end
+  object Label4: TLabel
+    Left = 48
+    Height = 15
+    Top = 120
+    Width = 16
+    Caption = '12'
+    Font.Height = -13
+    Font.Name = 'Monospace'
+    ParentColor = False
+    ParentFont = False
+    OnClick = LabelClick
+  end
+end

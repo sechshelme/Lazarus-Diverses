@@ -1,0 +1,127 @@
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Tetris.dpr *
+Hint: Alle Unit-Dateien gefunden
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Tetris.dpr *
+Hint: 
+Hint: *** Converting unit files belonging to project/package ***
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Hauptfor.pas *
+Hint: Kodierung von ISO-8859-1 zu UTF-8 geändert
+Hint: Zeichenschreibweise von Unit "Hiscore" auf "HISCORE" korrigiert.
+Hint: Zeichenschreibweise von Unit "Statisti" auf "STATISTI" korrigiert.
+Hint: Zeichenschreibweise von Unit "hintergr" auf "HINTERGR" korrigiert.
+Hint: Zeichenschreibweise von Unit "opti" auf "OPTI" korrigiert.
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/About.pas *
+Hint: Kodierung von ISO-8859-1 zu UTF-8 geändert
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: Unitname von about auf About berichtigt.
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Next.pas *
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: 
+Hint: *** Converting unit files found during conversion ***
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Digital.pas *
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HINTERGR.PAS *
+Hint: Kodierung von ISO-8859-1 zu UTF-8 geändert
+Hint: Zeichenschreibweise von Unit "statisti" auf "STATISTI" korrigiert.
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: Unitname von hintergr auf HINTERGR berichtigt.
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HISCORE.PAS *
+Hint: Zeichenschreibweise von Unit "eingabe" auf "EINGABE" korrigiert.
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: Unitname von hiscore auf HISCORE berichtigt.
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HISCORE.PAS *
+Hint: Zeichenschreibweise von Unit "eingabe" auf "EINGABE" korrigiert.
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: * Konvertiere Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/OPTI.PAS *
+Hint: Kodierung von ISO-8859-1 zu UTF-8 geändert
+Hint: Unit "Tabnotbk" im uses Abschnitt entfernt.
+Hint: Unit "Windows" mit "LCLIntf, LCLType, LMessages" im uses Abschnitt ersetzt.
+Hint: Unitname von opti auf OPTI berichtigt.
+Hint: 
+Hint: *** Repariere Formulardateien ... ***
+Hint: * Repariere Form-Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Hauptfor.lfm *
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Hauptfor.pas *
+Hint: * Repariere Form-Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/About.lfm *
+Hint: Changed Top coord of TMemo from "8" to "6" inside TPanel.
+Hint: Changed Left coord of TMemo from "8" to "6" inside TPanel.
+Hint: Changed Top coord of TPanel from "16" to "14" inside TPanel.
+Hint: Changed Left coord of TPanel from "16" to "14" inside TPanel.
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/About.pas *
+Hint: * Repariere Form-Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Next.lfm *
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Next.pas *
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/Digital.pas *
+Hint: * Repariere Form-Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HINTERGR.lfm *
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "400" to "398" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "40" to "38" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "320" to "318" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "240" to "238" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "176" to "174" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "120" to "118" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "64" to "62" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "16" to "14" inside TGroupBox.
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "400" to "398" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "40" to "38" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "320" to "318" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "240" to "238" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "176" to "174" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "120" to "118" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "64" to "62" inside TGroupBox.
+Hint: Changed Top coord of TLabel from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TLabel from "16" to "14" inside TGroupBox.
+Hint: Changed Top coord of TTrackBar from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TTrackBar from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "392" to "390" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "344" to "342" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "296" to "294" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "248" to "246" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "200" to "198" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "152" to "150" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "104" to "102" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "56" to "54" inside TGroupBox.
+Hint: Changed Top coord of TImage from "48" to "34" inside TGroupBox.
+Hint: Changed Left coord of TImage from "8" to "6" inside TGroupBox.
+Hint: Changed Top coord of TPaintBox from "16" to "2" inside TGroupBox.
+Hint: Changed Left coord of TPaintBox from "8" to "6" inside TGroupBox.
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HINTERGR.PAS *
+Hint: * Repariere Form-Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HISCORE.lfm *
+Hint: * Berichtigung der verwendeten Units für Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HISCORE.PAS *
+Hint: * Repariere Form-Datei /n4800/DATEN/Programmierung/Lazarus/TETRIS-1/HISCORE.lfm *
+Hint: Konvertierung benötigte: 00:00:09
+Hint: Konvertierung abgebrochen.

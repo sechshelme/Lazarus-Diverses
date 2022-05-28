@@ -1,0 +1,101 @@
+object Form1: TForm1
+  Left = 1458
+  Height = 314
+  Top = 116
+  Width = 791
+  Caption = 'Form1'
+  ClientHeight = 314
+  ClientWidth = 791
+  Color = clBtnFace
+  Font.CharSet = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.8.0.6'
+  object Label1: TLabel
+    Left = 16
+    Height = 13
+    Top = 16
+    Width = 70
+    Caption = 'Verzeichniss'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 13
+    Top = 53
+    Width = 86
+    Caption = 'Pixel (min . 16)'
+    ParentColor = False
+  end
+  object ButtonStart: TButton
+    Left = 280
+    Height = 25
+    Top = 45
+    Width = 48
+    Caption = 'Start'
+    OnClick = ButtonStartClick
+    TabOrder = 0
+  end
+  object EditVerzeichniss: TEdit
+    Left = 112
+    Height = 23
+    Top = 16
+    Width = 313
+    TabOrder = 1
+  end
+  object EditPixel: TEdit
+    Left = 112
+    Height = 23
+    Top = 47
+    Width = 121
+    TabOrder = 2
+    Text = '256'
+  end
+  object CheckBoxThumb: TCheckBox
+    Left = 456
+    Height = 22
+    Top = 16
+    Width = 139
+    Caption = 'Thumb.jpg erzeugen'
+    Checked = True
+    State = cbChecked
+    TabOrder = 3
+  end
+  object CheckVoransicht: TCheckBox
+    Left = 456
+    Height = 22
+    Top = 45
+    Width = 139
+    Caption = 'Voransicht erzeugen'
+    Checked = True
+    State = cbChecked
+    TabOrder = 4
+  end
+  object ButtonAbruch: TButton
+    Left = 344
+    Height = 25
+    Top = 45
+    Width = 48
+    Caption = 'Abruch'
+    Enabled = False
+    OnClick = ButtonAbruchClick
+    TabOrder = 5
+  end
+  object ButtonSelectDirectory: TButton
+    Left = 424
+    Height = 25
+    Top = 16
+    Width = 25
+    Caption = '...'
+    OnClick = ButtonSelectDirectoryClick
+    TabOrder = 6
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    left = 664
+    top = 24
+  end
+end

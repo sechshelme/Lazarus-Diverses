@@ -1,0 +1,21 @@
+object NextBox: TNextBox
+  Left = 826
+  Top = 734
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'NextBox'
+  ClientHeight = 122
+  ClientWidth = 139
+  Color = 96
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = True
+  OnKeyDown = FormKeyDown
+  OnPaint = FormPaint
+  PixelsPerInch = 96
+  TextHeight = 13
+end

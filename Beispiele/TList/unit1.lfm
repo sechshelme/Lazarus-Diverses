@@ -1,0 +1,48 @@
+object Form1: TForm1
+  Left = 429
+  Height = 240
+  Top = 220
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '1.5'
+  object Add: TButton
+    Left = 56
+    Height = 25
+    Top = 72
+    Width = 75
+    Caption = 'Add'
+    OnClick = AddClick
+    TabOrder = 0
+  end
+  object Ausgabe: TButton
+    Left = 56
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = 'Ausgabe'
+    OnClick = AusgabeClick
+    TabOrder = 1
+  end
+  object Insert: TButton
+    Left = 56
+    Height = 25
+    Top = 114
+    Width = 75
+    Caption = 'Insert'
+    OnClick = InsertClick
+    TabOrder = 2
+  end
+  object Sort: TButton
+    Left = 160
+    Height = 25
+    Top = 114
+    Width = 75
+    Caption = 'Sort'
+    OnClick = SortClick
+    TabOrder = 3
+  end
+end

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG>
+  <Form1>
+    <ComboBox1 Count="5">
+      <Item0 value="/etc/fstab"/>
+      <Item1 value="/etc/casper.conf"/>
+      <Item2 value="/etc/fppkg.cfg"/>
+      <Item3 value="/etc/deluser.conf"/>
+      <Item4 value="/avrdude/avrdude.conf"/>
+    </ComboBox1>
+    <ComboBox2 Count="2">
+      <Item0 value="/home/tux/Bilder/Bildschirmfoto vom 2020-03-31 15-43-58.png"/>
+      <Item1 value="/home/tux/Bilder/Bildschirmfoto vom 2020-05-17 15-04-38.png"/>
+    </ComboBox2>
+  </Form1>
+</CONFIG>

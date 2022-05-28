@@ -1,0 +1,95 @@
+object AboutBox: TAboutBox
+  Left = 177
+  Top = 612
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'About zu Tetris'
+  ClientHeight = 177
+  ClientWidth = 378
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Image1: TImage
+    Left = 8
+    Top = 8
+    Width = 105
+    Height = 105
+    Picture.Data = {
+      07544269746D617066020000424D660200000000000076000000280000001F00
+      00001F0000000100040000000000F00100000000000000000000000000000000
+      000000000000000080000080000000808000800000008000800080800000C0C0
+      C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFF
+      FF00888888888888888888888888888888808BBBB8BBBB8DDDD8DDDD82222822
+      22808BBBB8BBBB8DDDD8DDDD8222282222808BBBB8BBBB8DDDD8DDDD82222822
+      22808BBBB8BBBB8DDDD8DDDD8222282222808888888888888888888888888888
+      88808BBBB8BBBB8DDDD888888777782222808BBBB8BBBB8DDDD8888887777822
+      22808BBBB8BBBB8DDDD888888777782222808BBBB8BBBB8DDDD8888887777822
+      2280888888888888888888888888888888808CCCC888888DDDD8777787777822
+      22808CCCC888888DDDD877778777782222808CCCC888888DDDD8777787777822
+      22808CCCC888888DDDD877778777782222808888888888888888888888888888
+      88808CCCC8AAAA88888877778FFFF88888808CCCC8AAAA88888877778FFFF888
+      88808CCCC8AAAA88888877778FFFF88888808CCCC8AAAA88888877778FFFF888
+      8880888888888888888888888888888888808CCCC8AAAA8AAAA888888FFFF8FF
+      FF808CCCC8AAAA8AAAA888888FFFF8FFFF808CCCC8AAAA8AAAA888888FFFF8FF
+      FF808CCCC8AAAA8AAAA888888FFFF8FFFF808888888888888888888888888888
+      88808CCCC8AAAA8888888888888888FFFF808CCCC8AAAA8888888888888888FF
+      FF808CCCC8AAAA8888888888888888FFFF808CCCC8AAAA8888888888888888FF
+      FF8088888888888888888888888888888880
+    }
+    Stretch = True
+  end
+  object BitBtn1: TBitBtn
+    Left = 24
+    Top = 128
+    Width = 75
+    Height = 25
+    TabOrder = 0
+    Kind = bkOK
+  end
+  object Panel1: TPanel
+    Left = 120
+    Top = 8
+    Width = 249
+    Height = 161
+    BevelWidth = 8
+    Caption = 'Panel1'
+    TabOrder = 1
+    object Panel2: TPanel
+      Left = 14
+      Top = 14
+      Width = 217
+      Height = 129
+      BevelOuter = bvLowered
+      BevelWidth = 8
+      Caption = 'Panel2'
+      TabOrder = 0
+      object Memo1: TMemo
+        Left = 6
+        Top = 6
+        Width = 201
+        Height = 113
+        Alignment = taCenter
+        Color = clMaroon
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        Lines.Strings = (
+          ''
+          '32Bit Tetris für Windows 95'
+          'Version 2.00'
+          ''
+          'Copyrigth (c) 1993-1997  by'
+          'Mathias Burkhardt'
+        )
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+  end
+end

@@ -1,0 +1,78 @@
+object Form1: TForm1
+  Left = 387
+  Height = 240
+  Top = 272
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  LCLVersion = '2.1.0.0'
+  object ComboBox1: TComboBox
+    Left = 24
+    Height = 28
+    Top = 32
+    Width = 248
+    Anchors = [akTop, akLeft, akRight]
+    ItemHeight = 0
+    TabOrder = 0
+  end
+  object OpenButton1: TButton
+    Left = 280
+    Height = 28
+    Top = 32
+    Width = 27
+    Anchors = [akTop, akRight]
+    Caption = '...'
+    OnClick = OpenButton1Click
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Left = 32
+    Height = 16
+    Top = 168
+    Width = 41
+    Caption = 'Label1'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 24
+    Height = 25
+    Top = 128
+    Width = 75
+    Caption = 'Öffnen'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object ComboBox2: TComboBox
+    Left = 24
+    Height = 28
+    Top = 72
+    Width = 248
+    Anchors = [akTop, akLeft, akRight]
+    ItemHeight = 0
+    TabOrder = 3
+  end
+  object OpenButton2: TButton
+    Left = 280
+    Height = 28
+    Top = 72
+    Width = 27
+    Anchors = [akTop, akRight]
+    Caption = '...'
+    OnClick = OpenButton2Click
+    TabOrder = 4
+  end
+  object Label2: TLabel
+    Left = 32
+    Height = 16
+    Top = 192
+    Width = 41
+    Caption = 'Label2'
+    ParentColor = False
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 216
+    Top = 120
+  end
+end

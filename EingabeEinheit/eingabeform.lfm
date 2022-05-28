@@ -1,0 +1,35 @@
+object EingabeForm1: TEingabeForm1
+  Left = 667
+  Height = 257
+  Top = 766
+  Width = 312
+  BorderStyle = bsDialog
+  Caption = 'EingabeForm1'
+  ClientHeight = 257
+  ClientWidth = 312
+  OnCreate = FormCreate
+  LCLVersion = '1.8.0.6'
+  object BitBtn1: TBitBtn
+    Left = 112
+    Height = 30
+    Top = 216
+    Width = 83
+    Anchors = [akTop, akRight]
+    DefaultCaption = True
+    Kind = bkAbort
+    ModalResult = 3
+    TabOrder = 0
+  end
+  object BitBtn2: TBitBtn
+    Left = 208
+    Height = 30
+    Top = 216
+    Width = 88
+    Anchors = [akTop, akRight]
+    Default = True
+    DefaultCaption = True
+    Kind = bkOK
+    ModalResult = 1
+    TabOrder = 1
+  end
+end
