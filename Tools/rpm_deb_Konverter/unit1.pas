@@ -32,7 +32,7 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 const
-  path = '/home/tux/Schreibtisch/LabView';
+  path = '/home/tux/Schreibtisch/View';
 var
   fl: TStringList;
   i: integer;
