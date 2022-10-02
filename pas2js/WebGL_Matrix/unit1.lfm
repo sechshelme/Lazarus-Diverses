@@ -1,0 +1,27 @@
+object WForm1: TWForm1
+  Left = 2193
+  Height = 240
+  Top = 49
+  Width = 320
+  AlphaBlend = False
+  AlphaBlendValue = 255
+  Caption = 'WForm1'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnCreate = FormCreate
+  object WButton1: TWButton
+    Left = 132
+    Height = 25
+    Top = 83
+    Width = 75
+    Caption = 'WButton1'
+    TabOrder = 0
+    OnClick = WButton1Click
+  end
+  object WTimer1: TWTimer
+    Interval = 100
+    OnTimer = WTimer1Timer
+    Left = 57
+    Top = 93
+  end
+end
