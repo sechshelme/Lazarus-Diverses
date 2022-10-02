@@ -1,6 +1,6 @@
-#JavaScript mit Lazarus
+# JavaScript mit Lazarus
 
-##pas2js installieren
+## pas2js installieren
 
 ### Für WebGL reicht dieses Packet:
 fpcupdeluxe --> modules --> pas2js-rtl
