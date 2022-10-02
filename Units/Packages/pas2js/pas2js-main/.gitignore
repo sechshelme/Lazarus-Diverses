@@ -1,0 +1,13 @@
+bin
+fpmake
+units
+*.fpm
+*.~*~
+*.compiled
+*.map
+*.lps
+*.js
+*.ppu
+*.o
+*.wasm
+link*.res

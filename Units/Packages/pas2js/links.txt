@@ -1,0 +1,14 @@
+https://github.com/pascaldragon/Pas2JS_Widget
+
+/design/package/wcldsgn.lpk
+/widgets/wcl.lpk
+
+
+https://gitlab.com/freepascal.org/fpc/pas2js
+fpcupdeluxe --> modules --> pas2js-rtl
+
+geht nicht !!!!!  /pas2js-main/packages/rtl/pas2js_rtl.lpk
+
+
+
+

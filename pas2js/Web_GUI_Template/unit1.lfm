@@ -1,0 +1,20 @@
+object WForm1: TWForm1
+  Left = 240
+  Height = 240
+  Top = 145
+  Width = 320
+  AlphaBlend = False
+  AlphaBlendValue = 255
+  Caption = 'WForm1'
+  ClientHeight = 240
+  ClientWidth = 320
+  object WButton1: TWButton
+    Left = 132
+    Height = 25
+    Top = 83
+    Width = 75
+    Caption = 'WButton1'
+    TabOrder = 0
+    OnClick = WButton1Click
+  end
+end
