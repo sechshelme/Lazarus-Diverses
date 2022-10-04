@@ -1977,12 +1977,14 @@ rtl.module("MemoryBuffer",["System","JS"],function () {
       return this;
     };
     var kElementSize = 4;
-    this.AddFloats = function (count, data) {
+    this.AddFloats = function (Count, Data) {
       var floatOffset = 0;
       floatOffset = rtl.trunc(this.byteOffset / 4);
-      if (this.floatBuffer === null) this.floatBuffer = new Float32Array(this.byteBuffer.buffer,0,rtl.trunc(this.byteBuffer.byteLength / 4));
-      this.floatBuffer.set(data,floatOffset);
-      this.byteOffset = this.byteOffset + (count * 4);
+      if (this.floatBuffer === null) {
+        this.floatBuffer = new Float32Array(this.byteBuffer.buffer,0,rtl.trunc(this.byteBuffer.byteLength / 4));
+      };
+      this.floatBuffer.set(Data,floatOffset);
+      this.byteOffset = this.byteOffset + (Count * 4);
     };
   });
 });
@@ -2116,22 +2118,6 @@ rtl.module("GLUtils",["System","MemoryBuffer","Mat4","GLTypes","browserconsole",
       return Result;
     };
   });
-  this.GLSizeof = function (glType) {
-    var Result = 0;
-    var $tmp = glType;
-    if (($tmp === 5121) || ($tmp === 5120)) {
-      Result = 1}
-     else if (($tmp === 5122) || ($tmp === 5123)) {
-      Result = 2}
-     else if (($tmp === 5124) || ($tmp === 5125)) {
-      Result = 4}
-     else if ($tmp === 5126) {
-      Result = 4}
-     else {
-      $impl.Fatal("GLSizeof type is invalid.");
-    };
-    return Result;
-  };
   this.GLFatal = function (gl, messageString) {
     var error = 0;
     error = gl.getError();
@@ -2159,7 +2145,6 @@ rtl.module("GLUtils",["System","MemoryBuffer","Mat4","GLTypes","browserconsole",
 rtl.module("program",["System","browserconsole","BrowserApp","JS","Classes","SysUtils","Web","Mat4","MemoryBuffer","GLUtils","GLTypes","webgl"],function () {
   "use strict";
   var $mod = this;
-  this.kSIZEOF_VERTEX = 20;
   this.gl = null;
   this.shader = null;
   this.viewTransform = null;
@@ -2189,13 +2174,22 @@ rtl.module("program",["System","browserconsole","BrowserApp","JS","Classes","Sys
     var i = 0;
     verts = new Array();
     v.pos.$assign(pas.GLTypes.V2(-0.5,-0.5));
-    v.col.$assign(pas.GLTypes.V3(1,0,0));
+    v.col.$assign(pas.GLTypes.V3(0.5,0,0));
     verts.push(GLVertex2.$clone(v));
     v.pos.$assign(pas.GLTypes.V2(-0.5,0.5));
-    v.col.$assign(pas.GLTypes.V3(0,1,0));
+    v.col.$assign(pas.GLTypes.V3(0,0.5,0));
     verts.push(GLVertex2.$clone(v));
     v.pos.$assign(pas.GLTypes.V2(0.5,0.5));
-    v.col.$assign(pas.GLTypes.V3(0,0,1));
+    v.col.$assign(pas.GLTypes.V3(0,0,0.5));
+    verts.push(GLVertex2.$clone(v));
+    v.pos.$assign(pas.GLTypes.V2(0.5,0.5));
+    v.col.$assign(pas.GLTypes.V3(1,0.5,0.5));
+    verts.push(GLVertex2.$clone(v));
+    v.pos.$assign(pas.GLTypes.V2(-0.5,-0.5));
+    v.col.$assign(pas.GLTypes.V3(0.5,1,0.5));
+    verts.push(GLVertex2.$clone(v));
+    v.pos.$assign(pas.GLTypes.V2(0.5,-0.5));
+    v.col.$assign(pas.GLTypes.V3(0.5,0.5,1));
     verts.push(GLVertex2.$clone(v));
     buf = pas.MemoryBuffer.TMemoryBuffer.$create("Create$1",[20 * verts.length]);
     for (var $l = 0, $end = verts.length - 1; $l <= $end; $l++) {
@@ -2208,7 +2202,6 @@ rtl.module("program",["System","browserconsole","BrowserApp","JS","Classes","Sys
     return Result;
   };
   this.InitCanvas = function () {
-    var offset = 0;
     var vertexShaderSource = "";
     var fragmentShaderSource = "";
     $mod.canvas = document.createElement("canvas");
@@ -2236,13 +2229,10 @@ rtl.module("program",["System","browserconsole","BrowserApp","JS","Classes","Sys
     $mod.buffer = $mod.gl.createBuffer();
     $mod.gl.bindBuffer(34962,$mod.buffer);
     $mod.gl.bufferData(34962,$mod.GetVertexData(),35044);
-    offset = 0;
     $mod.gl.enableVertexAttribArray(0);
-    $mod.gl.vertexAttribPointer(0,2,5126,false,20,offset);
-    offset += pas.GLUtils.GLSizeof(5126) * 2;
+    $mod.gl.vertexAttribPointer(0,2,5126,false,20,0);
     $mod.gl.enableVertexAttribArray(1);
-    $mod.gl.vertexAttribPointer(1,3,5126,false,20,offset);
-    offset += pas.GLUtils.GLSizeof(5126) * 3;
+    $mod.gl.vertexAttribPointer(1,3,5126,false,20,8);
   };
   var rotateAngle = 0;
   this.UpdateCanvas = function (time) {
@@ -2250,7 +2240,7 @@ rtl.module("program",["System","browserconsole","BrowserApp","JS","Classes","Sys
     $mod.viewTransform.RotateZ(rotateAngle);
     $mod.shader.SetUniformMat4("viewTransform",$mod.viewTransform);
     $mod.gl.clear(16384);
-    $mod.gl.drawArrays(4,0,3);
+    $mod.gl.drawArrays(4,0,6);
     window.requestAnimationFrame($mod.UpdateCanvas);
   };
   $mod.$main = function () {

@@ -16,9 +16,6 @@ uses
   WebGL,
   Math;
 
-const
-  kSIZEOF_VERTEX = 20;   // vec2 + vec3
-
 var
   gl: TJSWebGLRenderingContext;
   shader: TShader;
@@ -43,19 +40,30 @@ var
     verts := TJSArray.new;
 
     v.pos := V2(-0.5, -0.5);
-    v.col := V3(1, 0, 0);
+    v.col := V3(0.5, 0, 0);
     verts.push(v);
 
     v.pos := V2(-0.5, 0.5);
-    v.col := V3(0, 1, 0);
+    v.col := V3(0, 0.5, 0);
     verts.push(v);
 
     v.pos := V2(0.5, 0.5);
-    v.col := V3(0, 0, 1);
+    v.col := V3(0, 0, 0.5);
     verts.push(v);
 
-    // pack the array of verticies into a byte buf
-    buf := TMemoryBuffer.Create(kSIZEOF_VERTEX * verts.length);
+    v.pos := V2(0.5, 0.5);
+    v.col := V3(1, 0.5, 0.5);
+    verts.push(v);
+
+    v.pos := V2(-0.5, -0.5);
+    v.col := V3(0.5, 1, 0.5);
+    verts.push(v);
+
+    v.pos := V2(0.5, -0.5);
+    v.col := V3(0.5, 0.5, 1);
+    verts.push(v);
+
+    buf := TMemoryBuffer.Create(20 * verts.length);
     for i := 0 to verts.length - 1 do begin
       v := GLVertex2(verts[i]);
       buf.AddFloats(2, ToFloats(v.pos));
@@ -67,7 +75,6 @@ var
 
   procedure InitCanvas;
   var
-    offset: integer;
     vertexShaderSource: string;
     fragmentShaderSource: string;
 
@@ -120,17 +127,13 @@ var
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, GetVertexData, gl.STATIC_DRAW);
 
-    offset := 0;
-
     // position
     gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 2, gl.FLOAT, False, kSIZEOF_VERTEX, offset);
-    offset += GLSizeof(gl.FLOAT) * 2;
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, False, 20,  0);
 
     // color
     gl.enableVertexAttribArray(1);
-    gl.vertexAttribPointer(1, 3, gl.FLOAT, False, kSIZEOF_VERTEX, offset);
-    offset += GLSizeof(gl.FLOAT) * 3;
+    gl.vertexAttribPointer(1, 3, gl.FLOAT, False, 20, 8);
   end;
 
   procedure UpdateCanvas(time: TJSDOMHighResTimeStamp);
@@ -142,9 +145,8 @@ var
     viewTransform.RotateZ(rotateAngle);
     shader.SetUniformMat4('viewTransform', viewTransform);
 
-    //writeln(deltaTime);
     gl.Clear(gl.COLOR_BUFFER_BIT);
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
 
     window.requestAnimationFrame(@UpdateCanvas);
   end;
@@ -153,6 +155,5 @@ begin
   Writeln('WebGL Demo');
   InitCanvas;
 
-  // fire off the timer to draw
   window.requestAnimationFrame(@UpdateCanvas);
 end.
