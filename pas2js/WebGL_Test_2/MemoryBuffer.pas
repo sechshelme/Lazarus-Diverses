@@ -1,85 +1,90 @@
 {$mode objfpc}
 
 unit MemoryBuffer;
+
 interface
+
 uses
-	JS;
+  JS;
 
 type
-    TMBFloat32 = double;
-	TMemoryBuffer = class
-		private
-			byteBuffer: TJSUint8Array;
-		public
-		 constructor Create (size: integer);
+  TMBFloat32 = double;
 
-		 { UInt8 }
-		 procedure AddBytes (count: integer; data: array of byte);
+  TMemoryBuffer = class
+  private
+    byteBuffer: TJSUint8Array;
+  public
+    constructor Create(size: integer);
 
-		 { Float32 }
-		 procedure AddFloats (count: integer; data: array of TMBFloat32);
-		 procedure AddFloat (data: TMBFloat32);
+    { UInt8 }
+    procedure AddBytes(Count: integer; Data: array of byte);
 
-		 { UInt16 }
-		 procedure AddWords(count: integer; data: array of word);
+    { Float32 }
+    procedure AddFloats(Count: integer; Data: array of TMBFloat32);
+    procedure AddFloat(Data: TMBFloat32);
 
-		 property GetBytes: TJSUint8Array read byteBuffer;
-		private
-			byteOffset: integer;
-			floatBuffer: TJSFloat32Array;
-			wordBuffer: TJSUInt16Array;
-	end;
+    { UInt16 }
+    procedure AddWords(Count: integer; Data: array of word);
+
+    property GetBytes: TJSUint8Array read byteBuffer;
+  private
+    byteOffset: integer;
+    floatBuffer: TJSFloat32Array;
+    wordBuffer: TJSUInt16Array;
+  end;
 
 implementation
 
-constructor TMemoryBuffer.Create (size: integer);
+constructor TMemoryBuffer.Create(size: integer);
 begin
-	byteBuffer := TJSUint8Array.New(size);
+  byteBuffer := TJSUint8Array.New(size);
 end;
 
-procedure TMemoryBuffer.AddBytes (count: integer; data: array of byte);
+procedure TMemoryBuffer.AddBytes(Count: integer; Data: array of byte);
 begin
-	//writeln('AddBytes: @', byteOffset, ' -> ', data);
-	byteBuffer._set(data, byteOffset);
-	byteOffset := byteOffset + (count * 1);
+  //writeln('AddBytes: @', byteOffset, ' -> ', data);
+  byteBuffer._set(Data, byteOffset);
+  byteOffset := byteOffset + (Count * 1);
 end;
 
-procedure TMemoryBuffer.AddFloat (data: TMBFloat32);
+procedure TMemoryBuffer.AddFloat(Data: TMBFloat32);
 begin
-	AddFloats(1, [data]);
+  AddFloats(1, [Data]);
 end;
 
-procedure TMemoryBuffer.AddFloats (count: integer; data: array of TMBFloat32);
+procedure TMemoryBuffer.AddFloats(Count: integer; Data: array of TMBFloat32);
 const
-	kElementSize = 4;
+  kElementSize = 4;
 var
-	floatOffset: integer;
+  floatOffset: integer;
 begin
-	floatOffset := byteOffset div kElementSize;
-	//writeln('AddFloats: @', byteOffset, '/', floatOffset, ' -> ', data);
+  floatOffset := byteOffset div kElementSize;
+  //writeln('AddFloats: @', byteOffset, '/', floatOffset, ' -> ', data);
 
-	if floatBuffer = nil then
-		floatBuffer := TJSFloat32Array.New(byteBuffer.buffer, 0, byteBuffer.byteLength div kElementSize);
+  if floatBuffer = nil then begin
+    floatBuffer := TJSFloat32Array.New(byteBuffer.buffer, 0, byteBuffer.byteLength div kElementSize);
+  end;
 
-	floatBuffer._set(data, floatOffset);
+  floatBuffer._set(Data, floatOffset);
 
-	byteOffset := byteOffset + (count * kElementSize);
+  byteOffset := byteOffset + (Count * kElementSize);
 end;
 
-procedure TMemoryBuffer.AddWords(count: integer; data: array of word);
+procedure TMemoryBuffer.AddWords(Count: integer; Data: array of word);
 const
-	kElementSize = 2;
+  kElementSize = 2;
 var
-	wordOffset: integer;
+  wordOffset: integer;
 begin
-	wordOffset := byteOffset div kElementSize;
+  wordOffset := byteOffset div kElementSize;
 
-	if wordBuffer = nil then
-		wordBuffer := TJSUInt16Array.New(byteBuffer.buffer, 0, byteBuffer.byteLength div kElementSize);
+  if wordBuffer = nil then begin
+    wordBuffer := TJSUInt16Array.New(byteBuffer.buffer, 0, byteBuffer.byteLength div kElementSize);
+  end;
 
-	wordBuffer._set(data, wordOffset);
+  wordBuffer._set(Data, wordOffset);
 
-	byteOffset := byteOffset + (count * kElementSize);
+  byteOffset := byteOffset + (Count * kElementSize);
 end;
 
 end.
