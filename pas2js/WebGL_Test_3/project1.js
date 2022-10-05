@@ -1914,6 +1914,17 @@ rtl.module("GLUtils",["System","MemoryBuffer","browserconsole","webgl","JS","Typ
         this.get()[i][1] = (x * Math.sin(angele)) + (y * Math.cos(angele));
       };
     };
+    this.GetList = function () {
+      var Result = rtl.arraySetLength(null,0.0,16);
+      var x = 0;
+      var y = 0;
+      for (x = 0; x <= 3; x++) {
+        for (y = 0; y <= 3; y++) {
+          Result[x + (y * 4)] = this.get()[x][y];
+        };
+      };
+      return Result;
+    };
   });
   rtl.createClass(this,"TShader",pas.System.TObject,function () {
     this.$init = function () {
@@ -1952,7 +1963,11 @@ rtl.module("GLUtils",["System","MemoryBuffer","browserconsole","webgl","JS","Typ
       this.gl.bindAttribLocation(this.programID,index,Name);
     };
     this.SetUniformMat4 = function (Name, Value) {
-      this.gl.uniformMatrix4fv(this.GetUniformLocation(Name),false,Value.slice(0));
+      this.gl.uniformMatrix4fv(this.GetUniformLocation(Name),false,$mod.TMatrixfHelper.GetList.call({get: function () {
+          return Value;
+        }, set: function (v) {
+          Value = v;
+        }}));
     };
     this.GetUniformLocation = function (Name) {
       var Result = null;

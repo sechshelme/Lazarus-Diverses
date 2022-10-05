@@ -141,8 +141,8 @@ type
 var
   m: t absolute Value;
 begin
-  gl.uniformMatrix4fv(GetUniformLocation(Name), False, m);
-  //  gl.uniformMatrix4fv(GetUniformLocation(Name), False, Value.GetList);
+//  gl.uniformMatrix4fv(GetUniformLocation(Name), False, m);
+    gl.uniformMatrix4fv(GetUniformLocation(Name), False, Value.GetList);
 end;
 
 function TShader.GetAttribLocation(Name: string): GLint;
