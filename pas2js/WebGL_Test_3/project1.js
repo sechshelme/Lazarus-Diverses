@@ -1624,18 +1624,6 @@ rtl.module("SysUtils",["System","JS"],function () {
     Obj.set(null);
     o.$destroy("Destroy");
   };
-  rtl.createClass(this,"Exception",pas.System.TObject,function () {
-    this.LogMessageOnCreate = false;
-    this.$init = function () {
-      pas.System.TObject.$init.call(this);
-      this.fMessage = "";
-    };
-    this.Create$1 = function (Msg) {
-      this.fMessage = Msg;
-      if (this.LogMessageOnCreate) pas.System.Writeln("Created exception ",this.$classname," with message: ",Msg);
-      return this;
-    };
-  });
   this.LowerCase = function (s) {
     return s.toLowerCase();
   };
@@ -1649,11 +1637,6 @@ rtl.module("SysUtils",["System","JS"],function () {
     if (1 in Flags) REFlags = REFlags + "i";
     REString = aSearch.replace(new RegExp($impl.RESpecials,"g"),"\\$1");
     Result = aOriginal.replace(new RegExp(REString,REFlags),aReplace);
-    return Result;
-  };
-  this.IntToStr = function (Value) {
-    var Result = "";
-    Result = "" + Value;
     return Result;
   };
   this.OnGetEnvironmentVariable = null;
@@ -1909,7 +1892,6 @@ rtl.module("webgl",["System","JS","Web"],function () {
 rtl.module("GLUtils",["System","MemoryBuffer","browserconsole","webgl","JS","Types","SysUtils"],function () {
   "use strict";
   var $mod = this;
-  var $impl = $mod.$impl;
   this.TMatrix$clone = function (a) {
     var b = [];
     b.length = 4;
@@ -1961,9 +1943,7 @@ rtl.module("GLUtils",["System","MemoryBuffer","browserconsole","webgl","JS","Typ
     };
     this.Link = function () {
       this.gl.linkProgram(this.programID);
-      if (!this.gl.getProgramParameter(this.programID,35714)) {
-        $impl.Fatal(this.gl.getProgramInfoLog(this.programID));
-      };
+      if (!this.gl.getProgramParameter(this.programID,35714)) ;
     };
     this.Use = function () {
       this.gl.useProgram(this.programID);
@@ -1972,64 +1952,28 @@ rtl.module("GLUtils",["System","MemoryBuffer","browserconsole","webgl","JS","Typ
       this.gl.bindAttribLocation(this.programID,index,Name);
     };
     this.SetUniformMat4 = function (Name, Value) {
-      var list = [];
-      var x = 0;
-      var y = 0;
-      list = rtl.arraySetLength(list,0.0,16);
-      for (x = 0; x <= 3; x++) {
-        for (y = 0; y <= 3; y++) {
-          list[x + (y * 4)] = Value[x][y];
-        };
-      };
-      this.gl.uniformMatrix4fv(this.GetUniformLocation(Name),false,list);
-      $mod.GLFatal(this.gl,"gl.uniformMatrix4fv");
+      this.gl.uniformMatrix4fv(this.GetUniformLocation(Name),false,Value.slice(0));
     };
     this.GetUniformLocation = function (Name) {
       var Result = null;
       Result = this.gl.getUniformLocation(this.programID,Name);
-      $mod.GLFatal(this.gl,"gl.getUniformLocation");
       return Result;
     };
     this.CreateShader = function (theType, Source) {
       var Result = null;
       Result = this.gl.createShader(theType);
       if (Result === null) {
-        $impl.Fatal("create shader failed");
+        pas.System.Writeln("create shader failed");
       };
       this.gl.shaderSource(Result,Source);
       this.gl.compileShader(Result);
       if (this.gl.getShaderParameter(Result,35713)) {
         return Result;
-      } else {
-        $impl.Fatal(this.gl.getShaderInfoLog(Result));
       };
       return Result;
     };
   });
-  this.GLFatal = function (gl, messageString) {
-    var error = 0;
-    error = gl.getError();
-    if (error !== 0) {
-      var $tmp = error;
-      if ($tmp === 1281) {
-        messageString = messageString + " (GL_INVALID_VALUE)";
-      } else if ($tmp === 1282) {
-        messageString = messageString + " (GL_INVALID_OPERATION)";
-      } else if ($tmp === 1280) {
-        messageString = messageString + " (GL_INVALID_ENUM)";
-      } else {
-        messageString = messageString + " " + pas.SysUtils.IntToStr(error);
-      };
-      $impl.Fatal(messageString);
-    };
-  };
-  $mod.$implcode = function () {
-    $impl.Fatal = function (messageString) {
-      pas.System.Writeln("*** FATAL: ",messageString);
-      throw pas.SysUtils.Exception.$create("Create$1",["FATAL"]);
-    };
-  };
-},[]);
+});
 rtl.module("GLTypes",["System","webgl","SysUtils"],function () {
   "use strict";
   var $mod = this;

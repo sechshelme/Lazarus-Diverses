@@ -1,13 +1,13 @@
 object WForm1: TWForm1
   Left = 2193
-  Height = 240
+  Height = 337
   Top = 49
-  Width = 320
+  Width = 592
   AlphaBlend = False
   AlphaBlendValue = 255
   Caption = 'WForm1'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 337
+  ClientWidth = 592
   OnCreate = FormCreate
   object WButton1: TWButton
     Left = 132
