@@ -20,7 +20,7 @@ type
   public
     constructor Create;
     destructor Destroy; override;
-    procedure prcess_event(report: TXEvent);
+    procedure process_event(report: TXEvent);
     procedure eventloop;
   end;
 
@@ -44,7 +44,7 @@ type
     screen := XDefaultScreen(display);
     depth := XDefaultDepth(display, screen);
     rootwin := RootWindow(display, screen);
-    win := XCreateSimpleWindow(display, rootwin, 400, 400, Width, Height, 5, BlackPixel(display, screen), WhitePixel(display, screen));
+    win := XCreateSimpleWindow(display, rootwin, 400, 400, Width, Height, 50, BlackPixel(display, screen), WhitePixel(display, screen));
 
     size_hints.flags := PSize or PMinSize or PMaxSize;
     size_hints.min_width := Width;
@@ -57,6 +57,7 @@ type
     // Fenster anzeigen
     XMapWindow(display, win);
     //  Result := 1;
+//    XSync(display,False);
   end;
 
   destructor TMyWin.Destroy;
@@ -66,7 +67,7 @@ type
     inherited Destroy;
   end;
 
-  procedure TMyWin.prcess_event(report: TXEvent);
+  procedure TMyWin.process_event(report: TXEvent);
   var
     key: TKeySym;
   begin
@@ -93,7 +94,7 @@ type
     while num_events <> 0 do begin
       Dec(num_events);
       XNextEvent(display, @xev);
-      prcess_event(xev);
+      process_event(xev);
     end;
   end;
 
