@@ -33,7 +33,8 @@ uses
     // Erstellt das Fenster
     w := XCreateSimpleWindow(d, RootWindow(d, s), 10, 10, 200, 200, 1, BlackPixel(d, s), WhitePixel(d, s));
 
-    // Wählt die gewünschten Ereignisse aus
+   // Wählt die gewünschten Ereignisse aus
+ //   XSelectInput(d, w, ExposureMask or KeyPressMask or ButtonPressMask or StructureNotifyMask or ResizeRedirectMask);
     XSelectInput(d, w, ExposureMask or KeyPressMask or ButtonPressMask or StructureNotifyMask);
 
     // Fenster anzeigen
