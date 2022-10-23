@@ -36,7 +36,7 @@ uses
 
     // winählt die gewünschten Ereignisse aus
 //    XSelectInput(dis, win, ExposureMask or KeyPressMask or ButtonPressMask);
-    XSelectInput(dis, win, ExposureMask or KeyPressMask or ButtonPressMask or StructureNotifyMask);
+    XSelectInput(dis, win, ExposureMask or KeyPressMask or ButtonPressMask or PointerMotionMask or  StructureNotifyMask);
 
     // Fenster anzeigen
     XMapWindow(dis, win);
@@ -64,6 +64,13 @@ uses
           y := Event.xconfigure.Height;
         end;
         ButtonPress:
+        begin
+          x:=Event.xbutton.x; y:= Event.xbutton.y;
+          XDrawLine(dis, win, gc,100,100,x,y);
+          WriteLn('xroot=', Event.xbutton.x_root, ' yroot=', Event.xbutton.y_root);
+          WriteLn('state=', Event.xbutton.state, ' button=', Event.xbutton.button);
+        end;
+        MotionNotify:
         begin
           x:=Event.xbutton.x; y:= Event.xbutton.y;
           XDrawLine(dis, win, gc,100,100,x,y);
