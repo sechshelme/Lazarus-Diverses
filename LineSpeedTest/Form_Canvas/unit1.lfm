@@ -1,0 +1,9 @@
+object Form1: TForm1
+  Left = 440
+  Height = 240
+  Top = 161
+  Width = 320
+  Caption = 'Form1'
+  OnClick = FormClick
+  LCLVersion = '2.2.2.0'
+end
