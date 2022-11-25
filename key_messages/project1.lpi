@@ -74,6 +74,9 @@
       <Item>
         <Name Value="EFOpenError"/>
       </Item>
+      <Item>
+        <Name Value="EResNotFound"/>
+      </Item>
     </Exceptions>
   </Debugging>
 </CONFIG>

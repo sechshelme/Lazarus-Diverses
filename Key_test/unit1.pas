@@ -5,13 +5,15 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, LCLType;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, LCLType, StdCtrls;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormUTF8KeyPress(Sender: TObject; var UTF8Key: TUTF8Char);
@@ -34,6 +36,15 @@ procedure TForm1.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState)
 begin
   WriteLn('down ', Key);
 
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  b: boolean = True;
+  s: string;
+begin
+  str(b, s);
+  Caption := s;
 end;
 
 procedure TForm1.FormKeyPress(Sender: TObject; var Key: char);
