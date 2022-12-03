@@ -10,7 +10,10 @@ uses
 
 type
   TVector3f = array [0..2] of single;
+
+//  PSingleArray=^TSingleArray;
   TSingleArray = array[0..15] of single;
+
 
   TMatrix = array[0..3, 0..3] of GLfloat;
 

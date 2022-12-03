@@ -7,18 +7,19 @@
         <MainUnitHasCreateFormStatements Value="False"/>
         <MainUnitHasTitleStatement Value="False"/>
         <MainUnitHasScaledStatement Value="False"/>
+        <Runnable Value="False"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="project1"/>
+      <Title Value="tetris"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
     </General>
     <CustomData Count="5">
-      <Item0 Name="BrowserConsole" Value="1"/>
-      <Item1 Name="MaintainHTML" Value="1"/>
-      <Item2 Name="Pas2JSProject" Value="1"/>
-      <Item3 Name="PasJSLocation" Value="$NameOnly($(ProjFile))"/>
-      <Item4 Name="PasJSWebBrowserProject" Value="1"/>
+      <Item0 Name="MaintainHTML" Value="1"/>
+      <Item1 Name="PasJSHTMLFile" Value="project1.html"/>
+      <Item2 Name="PasJSPort" Value="0"/>
+      <Item3 Name="PasJSWebBrowserProject" Value="1"/>
+      <Item4 Name="RunAtReady" Value="1"/>
     </CustomData>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -32,22 +33,26 @@
     </RunParams>
     <Units>
       <Unit>
-        <Filename Value="project1.lpr"/>
+        <Filename Value="tetris.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="project1.html"/>
+        <Filename Value="tetris.html"/>
         <IsPartOfProject Value="True"/>
         <CustomData Count="1">
           <Item0 Name="PasJSIsProjectHTMLFile" Value="1"/>
         </CustomData>
       </Unit>
+      <Unit>
+        <Filename Value="utetris.pp"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
-    <Target FileExt=".js">
-      <Filename Value="project1"/>
+    <Target>
+      <Filename Value="tetris"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
@@ -66,7 +71,6 @@
     <Linking>
       <Debugging>
         <GenerateDebugInfo Value="False"/>
-        <DebugInfoType Value="dsDwarf2Set"/>
         <UseLineInfoUnit Value="False"/>
       </Debugging>
     </Linking>
