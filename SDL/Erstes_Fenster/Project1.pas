@@ -11,6 +11,8 @@ var
 begin
   SDL_Init(SDL_INIT_VIDEO); // Initialize the video SDL subsystem
   scr := SDL_SetVideoMode(640, 480, 8, SDL_SWSURFACE);
+  SDL_WM_SetCaption('SDL-Fenster', nil);
+
   if scr = nil then
   begin
     WriteLn('could not initialize sdl2: ', SDL_GetError());
