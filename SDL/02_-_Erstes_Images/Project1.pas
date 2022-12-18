@@ -1,7 +1,8 @@
 program Project1;
 
 uses
-heaptrc,  sdl;
+  heaptrc,
+  sdl;
 
 var
   scr, img: PSDL_Surface; // Our main screen
@@ -11,13 +12,13 @@ var
   col: uint32;
   ofs: TSDL_Rect;
 
-  procedure apply_surface(x,y:Integer; source: PSDL_Surface; destination:PSDL_Surface);
+  procedure apply_surface(x, y: integer; Source: PSDL_Surface; destination: PSDL_Surface);
   var
     offset: SDL_Rect;
   begin
-    offset.x:=x;
-    offset.y:=y;
-    SDL_BlitSurface(source,nil,destination,@offset);
+    offset.x := x;
+    offset.y := y;
+    SDL_BlitSurface(Source, nil, destination, @offset);
   end;
 
 
@@ -39,6 +40,23 @@ begin
   if scr = nil then begin
     WriteLn('could not initialize sdl2: ', SDL_GetError());
   end;
+
+  ofs.x := 100;
+  ofs.y := 100;
+  SDL_Flip(img);
+  SDL_BlitSurface(img, nil, scr, @ofs);
+  SDL_Flip(scr);
+
+
+  apply_surface(320, 0, img, scr);
+  apply_surface(0, 240, img, scr);
+  apply_surface(320, 240, img, scr);
+
+  dstrect.h := 100;
+  dstrect.w := 100;
+  SDL_FillRect(scr, @dstrect, $BBBBBB);
+  SDL_Flip(scr);
+
   repeat
     SDL_WaitEvent(@Event);
     case Event.type_ of
@@ -46,21 +64,6 @@ begin
         Quit := True;
       end;
       SDL_KEYDOWN: begin
-        ofs.x := 100;
-        ofs.y := 100;
-        SDL_Flip(img);
-        SDL_BlitSurface(img, nil, scr, @ofs);
-        SDL_Flip(scr);
-
-
-        apply_surface( 320, 0, img, scr );
-          apply_surface( 0, 240, img, scr );
-          apply_surface( 320, 240, img, scr );
-
-        dstrect.h := 100;
-        dstrect.w := 100;
-        SDL_FillRect(scr, @dstrect, $BBBBBB);
-        SDL_Flip(scr);
       end;
     end;
 
