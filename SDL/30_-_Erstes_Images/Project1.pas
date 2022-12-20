@@ -9,18 +9,7 @@ var
   Quit: boolean;
   Event: TSDL_Event;
   dstrect: TSDL_Rect;
-  col: uint32;
   ofs: TSDL_Rect;
-
-  procedure apply_surface(x, y: integer; Source: PSDL_Surface; destination: PSDL_Surface);
-  var
-    offset: SDL_Rect;
-  begin
-    offset.x := x;
-    offset.y := y;
-    SDL_BlitSurface(Source, nil, destination, @offset);
-  end;
-
 
 begin
   // Initialize the video SDL subsystem
@@ -43,14 +32,15 @@ begin
 
   ofs.x := 100;
   ofs.y := 100;
-  SDL_Flip(img);
+//  SDL_Flip(img);
   SDL_BlitSurface(img, nil, scr, @ofs);
+  ofs.x := 200;
+  ofs.y := 200;
+//  SDL_Flip(img);
+  SDL_BlitSurface(img, nil, scr, @ofs);
+
   SDL_Flip(scr);
 
-
-  apply_surface(320, 0, img, scr);
-  apply_surface(0, 240, img, scr);
-  apply_surface(320, 240, img, scr);
 
   dstrect.h := 100;
   dstrect.w := 100;
