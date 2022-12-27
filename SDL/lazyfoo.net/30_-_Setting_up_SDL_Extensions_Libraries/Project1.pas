@@ -1,7 +1,8 @@
 program Project1;
 
 uses
-  sdl;
+  sdl,
+  sdl_image;
 
 const
   Screen_Width = 640;
@@ -16,10 +17,12 @@ var
     loadedImage: PSDL_Surface;
   begin
     Result := nil;
-    loadedImage := SDL_LoadBMP(PChar(filename));
+    loadedImage := IMG_Load(PChar(filename));
     if loadedImage <> nil then begin
       Result := SDL_DisplayFormat(loadedImage);
       SDL_FreeSurface(loadedImage);
+    end else begin
+      WriteLn('Kann Datei ' + filename + ' nicht laden');
     end;
   end;
 
@@ -50,7 +53,7 @@ begin
 
   // Load Images
   background := load_image('SDL_logo.bmp');
-  message := load_image('icon.bmp');
+  message := load_image('loggo.png');
 
   // Copy Image auf Screen
   apply_surface(0, 0, background, screen);
