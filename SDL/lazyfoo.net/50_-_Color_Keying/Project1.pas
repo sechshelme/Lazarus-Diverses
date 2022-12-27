@@ -43,7 +43,7 @@ type
       WriteLn('Kann Datei ' + filename + ' nicht laden');
     end;
     if optimizedImage <> nil then begin
-      colorkey := SDL_MapRGB(optimizedImage^.format, $0, $FF, $FF);
+      colorkey := SDL_MapRGB(optimizedImage^.format, $FF, $FF, $FF);
       SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY, colorkey);
     end;
     Result:=optimizedImage;
@@ -72,7 +72,7 @@ type
     // Fenster Titel
     SDL_WM_SetCaption('Event Test', nil);
 
-    foo := load_image('foo2.png');
+    foo := load_image('foo.png');
     background := load_image('background.jpg');
 
   end;
