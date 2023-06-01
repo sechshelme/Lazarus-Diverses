@@ -1,10 +1,8 @@
 program project1;
 
 uses
-    BaseUnix,
+  BaseUnix,
   Unix;
-
-// https://forum.ubuntuusers.de/topic/zeilenanzahl-im-terminal-ermitteln/
 
 const
   STDIN_FILENO = 0;//  /* Standard input.  */
@@ -12,9 +10,9 @@ const
   STDERR_FILENO = 2;//  /* Standard error output.  */
 
   TIOCGWINSZ = $5413;
-  TIOCSWINSZ=	$5414;
+  TIOCSWINSZ = $5414;
 
-   SIGWINCH=	28; //	/* Window size change (4.3 BSD, Sun).  */
+  SIGWINCH = 28; //  /* Window size change (4.3 BSD, Sun).  */
 
 
 type
@@ -23,14 +21,14 @@ type
   end;
 var
   w: Twinsize;
-  s:String='Hello World !'#10;
+  s: string = 'Hello World !'#10;
 
-procedure resize(signal: longint); cdecl;
-begin
-  FpIOCtl(STDOUT_FILENO, TIOCGWINSZ, @w);
-  WriteLn(w.ws_col, 'x', w.ws_row);
-  WriteLn(signal);
-end;
+  procedure resize(signal: longint); cdecl;
+  begin
+    FpIOCtl(STDOUT_FILENO, TIOCGWINSZ, @w);
+    WriteLn(w.ws_col, 'x', w.ws_row);
+    WriteLn(signal);
+  end;
 
 begin
   FpIOCtl(STDOUT_FILENO, TIOCGWINSZ, @w);
@@ -46,6 +44,5 @@ begin
 
   FpSignal(SIGWINCH, @resize);
 
-  repeat until False;
-
+  ReadLn;
 end.

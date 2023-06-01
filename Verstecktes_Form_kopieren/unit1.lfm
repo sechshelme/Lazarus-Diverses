@@ -1,0 +1,31 @@
+object Form1: TForm1
+  Left = 205
+  Height = 342
+  Top = 519
+  Width = 774
+  Caption = 'Copy unvisible Form'
+  ClientHeight = 342
+  ClientWidth = 774
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnPaint = FormPaint
+  LCLVersion = '2.2.6.0'
+  object Button1: TButton
+    Left = 544
+    Height = 25
+    Top = 24
+    Width = 200
+    Caption = 'Kopiere unsichtbare Form2'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 544
+    Height = 25
+    Top = 80
+    Width = 200
+    Caption = 'Ins Clipboard'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+end

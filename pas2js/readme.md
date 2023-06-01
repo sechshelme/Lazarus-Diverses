@@ -6,7 +6,7 @@
 fpcupdeluxe --> modules --> pas2js-rtl
 
 
-### Für Form Anwendungen noch dies runterladen un installieren:
+### Für LCL/Form Anwendungen noch dies runterladen un installieren:
 Downloaden: https://github.com/pascaldragon/Pas2JS_Widget
 
 Folgende Package installieren:
@@ -16,7 +16,8 @@ Folgende Package installieren:
 ```
 
 ### Get leider nicht, daher fpcupdeluxe verwenden.
-```https://gitlab.com/freepascal.org/fpc/pas2js
+https://gitlab.com/freepascal.org/fpc/pas2js
+```
 fpcupdeluxe --> modules --> pas2js-rtl
 ```
 

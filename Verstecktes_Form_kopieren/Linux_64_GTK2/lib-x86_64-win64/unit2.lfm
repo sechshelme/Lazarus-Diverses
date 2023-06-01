@@ -1,0 +1,54 @@
+object Form2: TForm2
+  Left = 458
+  Height = 200
+  Top = 634
+  Width = 500
+  AlphaBlend = True
+  AlphaBlendValue = 0
+  Caption = 'Form2'
+  ClientHeight = 200
+  ClientWidth = 500
+  OnPaint = FormPaint
+  LCLVersion = '2.2.6.0'
+  object Panel1: TPanel
+    Left = 40
+    Height = 50
+    Top = 32
+    Width = 170
+    Caption = 'Panel1'
+    Color = clMoneyGreen
+    ParentColor = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 264
+    Height = 50
+    Top = 32
+    Width = 170
+    Caption = 'Panel2'
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 1
+  end
+  object Panel3: TPanel
+    Left = 40
+    Height = 50
+    Top = 112
+    Width = 394
+    Caption = 'Panel3'
+    Color = clMaroon
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+  end
+  object ComboBox1: TComboBox
+    Left = 152
+    Height = 28
+    Top = 14
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 3
+    Text = 'ComboBox1'
+  end
+end

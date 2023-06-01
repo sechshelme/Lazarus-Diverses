@@ -7,20 +7,12 @@
         <MainUnitHasCreateFormStatements Value="False"/>
         <MainUnitHasTitleStatement Value="False"/>
         <MainUnitHasScaledStatement Value="False"/>
-        <Runnable Value="False"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
       <Title Value="project1"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
-      <Icon Value="0"/>
     </General>
-    <CustomData Count="4">
-      <Item0 Name="Pas2JSProject" Value="1"/>
-      <Item1 Name="PasJSHTMLFile" Value="project1.html"/>
-      <Item2 Name="PasJSLocation" Value="$NameOnly($(ProjFile))"/>
-      <Item3 Name="PasJSWebBrowserProject" Value="1"/>
-    </CustomData>
     <BuildModes>
       <Item Name="Default" Default="True"/>
     </BuildModes>
@@ -31,34 +23,10 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages>
-      <Item>
-        <PackageName Value="WCL"/>
-      </Item>
-      <Item>
-        <PackageName Value="pas2js_rtl"/>
-      </Item>
-    </RequiredPackages>
     <Units>
       <Unit>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="project1.html"/>
-        <IsPartOfProject Value="True"/>
-        <CustomData Count="2">
-          <Item0 Name="MaintainHTML" Value="1"/>
-          <Item1 Name="PasJSIsProjectHTMLFile" Value="1"/>
-        </CustomData>
-      </Unit>
-      <Unit>
-        <Filename Value="unit1.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="WForm1"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="CustomForm"/>
-        <UnitName Value="Unit1"/>
       </Unit>
     </Units>
   </ProjectOptions>
@@ -69,19 +37,13 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
-    <CodeGeneration>
-      <TargetOS Value="browser"/>
-    </CodeGeneration>
     <Linking>
       <Debugging>
-        <GenerateDebugInfo Value="False"/>
+        <DebugInfoType Value="dsDwarf3"/>
       </Debugging>
     </Linking>
-    <Other>
-      <CustomOptions Value="-Jeutf-8 -Jirtl.js -Jc -Jminclude -JRjs"/>
-      <CompilerPath Value="$(pas2js)"/>
-    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions>
