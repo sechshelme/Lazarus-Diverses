@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CONFIG>
   <Form1>
-    <ComboBox1 Count="5">
-      <Item0 value="/etc/fstab"/>
-      <Item1 value="/etc/casper.conf"/>
-      <Item2 value="/etc/fppkg.cfg"/>
-      <Item3 value="/etc/deluser.conf"/>
-      <Item4 value="/avrdude/avrdude.conf"/>
+    <ComboBox1 Count="7">
+      <Item0 value="/etc/legal"/>
+      <Item1 value="/etc/e2scrub.conf"/>
+      <Item2 value="/etc/fstab"/>
+      <Item3 value="/etc/casper.conf"/>
+      <Item4 value="/etc/fppkg.cfg"/>
+      <Item5 value="/etc/deluser.conf"/>
+      <Item6 value="/avrdude/avrdude.conf"/>
     </ComboBox1>
-    <ComboBox2 Count="2">
-      <Item0 value="/home/tux/Bilder/Bildschirmfoto vom 2020-03-31 15-43-58.png"/>
-      <Item1 value="/home/tux/Bilder/Bildschirmfoto vom 2020-05-17 15-04-38.png"/>
+    <ComboBox2 Count="3">
+      <Item0 value="/n4800/DATEN/Programmierung/mit_GIT/Lazarus/Diverses/Android/android_wiki.txt"/>
+      <Item1 value="/home/tux/Bilder/Bildschirmfoto vom 2020-03-31 15-43-58.png"/>
+      <Item2 value="/home/tux/Bilder/Bildschirmfoto vom 2020-05-17 15-04-38.png"/>
     </ComboBox2>
   </Form1>
 </CONFIG>

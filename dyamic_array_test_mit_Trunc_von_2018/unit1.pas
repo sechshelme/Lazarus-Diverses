@@ -1,7 +1,12 @@
 unit Unit1;
 
-{$mode delphi}{$H+}
-{$modeswitch ArrayOperators-}
+// https://www.freepascal.org/docs-html/ref/refsu48.html
+
+//{$mode delphi}{$H+}
+//{$modeswitch ArrayOperators-}
+
+{$mode objfpc}
+{$modeswitch arrayoperators}
 
 
 interface
@@ -28,7 +33,6 @@ var
 implementation
 
 {$R *.lfm}
-{$modeswitch arrayoperators}
 
 { TForm1 }
 
@@ -61,10 +65,10 @@ var
   d_static: array[0..2] of byte = (6, 7, 8);
 
 var
-  d_dynamic: array of integer = [6, 7, 8];
+  d_dynamic: array of integer = (6, 7, 8);
   {$push}
   {$J-}
-  e_dynamic: array of integer = [6, 7, 8];
+  e_dynamic: array of integer = (6, 7, 8);
   {$push}
 
 begin
@@ -74,6 +78,7 @@ begin
   WriteLn('d', SizeOf(d_dynamic));
   WriteLn('e', SizeOf(e_dynamic));
 
+  b := a +  [123, 222];
 
   b := a + d_static + [123, 222];
   Ausgabe(b);           // error  --> Output:  1   2   3 123 222 123 222
