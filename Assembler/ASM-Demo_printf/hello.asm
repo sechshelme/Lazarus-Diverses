@@ -69,6 +69,35 @@ _start:
     call printf
 ;    call printf WRT ..plt
 
+; ---- With push -----
+
+	sub	rsp, 8
+	push	20
+	push	19
+	push	18
+	push	17
+	push	16
+	push	15
+	push	14
+	push	13
+	push	12
+	push	11
+	push	10
+	push	9
+	push	8
+	push	7
+	push	6    
+    mov	r9d, 5
+	mov	r8d, 4
+	mov	ecx, 3
+	mov	edx, 2
+	mov	esi, 1
+
+	mov	rdi, pushMessage
+	mov	eax, 0
+	call	printf
+
+add	rsp, 80
 
 ; ---------------------------------
 
@@ -80,6 +109,7 @@ section .data
 ;    integer:       db  11, 22, 33, 44, 55, 66, 77, 88, 99
     integer:       dq  1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999
     message:       db  "Integer: %d %d %d %d %d %d %d %d %d", 10, 10, 0
+    pushMessage:   db  "Integer: %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d", 10, 10, 0
 
     str0:          db  "Ich bin der 0 String", 0
     str1:          db  "Ich bin der 1 String", 0
