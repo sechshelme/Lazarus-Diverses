@@ -4,41 +4,14 @@ program project1;
 {$ASMMODE intel}
 {$DEFINE RELEASE}
 
-{$POINTERMATH On}
-
 uses
   ctypes;
 
   function printf(str: PChar): cint; varargs cdecl; external 'c';
 
-const
-  hello: PChar = 'Hello World ! %d';
-var
-  p2: Pointer;
-
-  procedure print3; // assembler;
-  var
-    p: PtrInt;
-  begin
-    p := PtrInt(hello);
-    asm
-             Jmp     @start
-             @hello:
-             Db      'Hello World !'
-             @Nr:
-             Dq      123
-             @start:
-             Mov     Rdi, p
-             //             Movq     Rsi,@hello
-             Xor     Rax,Rax
-             Call    printf
-
-    end;
-  end;
-
   procedure print1;
-  const
-    hello: PChar = 'Hello World ! '#10;
+  var
+    hello: PChar = 'Hello World 1 ! '#10;
   var
     p: Pointer;
   begin
@@ -46,31 +19,75 @@ var
     asm
              Mov     Rax, 1
              Mov     Rdi,1
-             Mov     Rsi, p
-             Mov     Rdx,15
+             Mov     Rsi, hello
+             Mov     Rdx,17
              Syscall
     end;
   end;
 
+var
+  hello2: PChar = 'Hello World 2 ! '#10;
 
-  procedure print2;
-  var
-    hello2: PChar = 'Hello World ! '#10;
-  begin
-    asm
-             Mov     Rax, 1
-             Mov     Rdi,1
-             Mov     Rsi, hello2;
-             Mov     Rdx,15
-             Syscall
-    end;
+procedure print2;
+begin
+  asm
+           Mov     Rax, [hello2 wrt ..gotpcrel]
+           Mov     Rsi, qword ptr[Rax]
+
+           Mov     Rax, 1
+           Mov     Rdi,1
+           Mov     Rdx,17
+           Syscall
   end;
+end;
+
+procedure print3;
+const
+  hello3: PChar = 'Hello World 3 ! '#10;
+begin
+  asm
+           Mov     Rax, [hello3 wrt ..gotpcrel]
+           Mov     Rsi, qword ptr[Rax]
+
+           Mov     Rax, 1
+           Mov     Rdi,1
+           Mov     Rdx,17
+           Syscall
+  end;
+end;
+
+procedure print4;   assembler;
+asm
+           Mov     Rax, [hello2 wrt ..gotpcrel]
+           Mov     Rsi, qword ptr[Rax]
+
+           Mov     Rax, 1
+           Mov     Rdi,1
+           Mov     Rdx,17
+           Syscall
+end;
+
+procedure print5;   assembler;
+asm
+//           jmp     @start
+//@hello5:   db      "Hello World 5 !"
+//
+////@start:     Mov     Rax, [@hello5 wrt ..gotpcrel]
+//@start:     Mov     Rax, [@hello5 wrt ..gotpcrel]
+//           Mov     Rsi, qword ptr[Rax]
+//
+//           Mov     Rax, 1
+//           Mov     Rdi,1
+//           Mov     Rdx,17
+//           Syscall
+end;
 
 begin
-  //p2 := Pointer(hello);
-  //  print;
   print1;
   print2;
+  print3;
+  print4;
+  print5;
   //  printf('Hello World\n', 111, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
   //  printf('Hello World\n',111,2,3);
 end.
