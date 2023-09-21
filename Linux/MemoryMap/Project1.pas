@@ -18,14 +18,14 @@ begin
   if fd = -1 then begin
     WriteLn('Fehler: Open');
   end;
-  P := PChar(fpmmap(nil, 10, PROT_READ or PROT_WRITE, MAP_PRIVATE, fd, 0));
+  P := PChar(fpmmap(nil, 25, PROT_READ, MAP_PRIVATE, fd, 30));
 
   if PtrUInt(P) = -1 then begin
     WriteLn('Fehler');
   end;
   Writeln('Read in memory  :'#10);
 
-  for i:= 0 to 20 do Write(p[i]);
+// for i:= 0 to 20 do Write('-',p[i]);
 
 
   fpclose(fd);

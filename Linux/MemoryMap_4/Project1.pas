@@ -1,5 +1,7 @@
 program Project1;
 
+// https://linuxhint.com/using_mmap_function_linux/
+
 uses
   Strings,
   BaseUnix,
@@ -26,8 +28,8 @@ const
     ar4: cint = 1;
     fd: cint;
     sb: stat;
-    offset: culong = 0;
-    len: SizeInt = 10;
+    offset: culong = 2;
+    len: SizeInt = 50;
     pa_offset: culong;
     addr: Pointer;
     s: TsSize;
@@ -42,6 +44,7 @@ const
     end;
 
     pa_offset := offset and not (sysconf(_SC_PAGESIZE) - 1);
+    pa_offset:=0;
 
     WriteLn('size: ',sb.st_size);
 
@@ -59,12 +62,19 @@ const
     end;
     len := 10;
 
-    addr := Fpmmap(nil, len + offset - pa_offset, PROT_READ, MAP_PRIVATE, fd, pa_offset);
+    WriteLn('1. ',len + offset - pa_offset);
+    WriteLn('2. ',pa_offset);
+
+    addr := Fpmmap(nil, 50, PROT_READ, MAP_PRIVATE, fd, 0);
     if addr = MAP_FAILED then begin
       errx('mmap');
     end;
 
-    s := FpWrite(StdOutputHandle, addr + offset - pa_offset, len);
+    s := FpWrite(StdOutputHandle, addr, 50);
+    WriteLn();
+
+    WriteLn(PChar(addr + 3));
+
     if s <> len then begin
       if s = -1 then begin
         errx('write');

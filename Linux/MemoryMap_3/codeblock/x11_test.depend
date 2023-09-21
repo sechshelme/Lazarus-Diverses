@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1683215966 source:/n4800/DATEN/Programmierung/mit_GIT/Lazarus/Tutorial/X11/Code-Blocks/Cjlipboard/main.c
+	<stdio.h>
+	<limits.h>
+	<X11/Xlib.h>
+
+1683215966 source:/n4800/DATEN/Programmierung/mit_GIT/Lazarus/Tutorial/X11/Code-Blocks/Clipboard/main.c
+	<stdio.h>
+	<limits.h>
+	<X11/Xlib.h>
+
+1683220268 source:/n4800/DATEN/Programmierung/mit_GIT/Lazarus/Tutorial/X11/Code-Blocks/Atom/main.c
+	<X11/Xlib.h>
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+
+1684838777 source:/n4800/DATEN/Programmierung/mit_GIT/Lazarus/Tutorial/X11/Code-Blocks/Atom_3/main.c
+	<X11/Xlib.h>
+	<stdio.h>
+
+1691592677 source:/n4800/DATEN/Programmierung/mit_GIT/Lazarus/Diverses/Linux/MemoryMap_4/codeblock/main.c
+	<sys/mman.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+
