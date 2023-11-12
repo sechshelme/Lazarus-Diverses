@@ -40,15 +40,21 @@ begin
   WriteLn('Betriebssystem:               ' + {$I %FPCTARGETOS%});
   WriteLn('FPC Version:                  ' + {$I %FPCVERSION%});
   WriteLn('Name der Datei:               ' + {$I %FILE%});
-  WriteLn('Name der Datei:               ' + {$I %FILnENAME%});
+  WriteLn('Name der Datei:               ' + {$I %FILENAME%});
   WriteLn('Aktuelle Zeile als String:    ' + {$I %LINE%});
   WriteLn('Aktuelle Zeile als Int:       ' + IntToStr({$I %LINENUM%}));
   WriteLn('Compilierer:                  ' + {$I %USER%});
   WriteLn('Name der aktuellen Routine:   ' + {$I %CURRENTROUTINE%});
+
+  WriteLn(
+    {$include %dateYear%}, '  ',
+    {$include %dateMonth%}, '  ',
+    {$include %dateDay%}, '  ',
+    {$include %timeHour%}, '  ',
+    {$include %timeMinute%}, '  ',
+    {$include %timeSecond%},        {$include %Unit1.pas%} );
+
 end;
 
 begin
 end.
-
-
-
