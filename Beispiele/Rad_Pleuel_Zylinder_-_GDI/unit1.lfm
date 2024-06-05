@@ -6,16 +6,16 @@ object Form1: TForm1
   Caption = 'Form1'
   ClientHeight = 347
   ClientWidth = 881
+  LCLVersion = '3.99.0.0'
   OnCreate = FormCreate
-  LCLVersion = '1.7'
   object Button1: TButton
     Left = 0
     Height = 25
     Top = 0
     Width = 32
     Caption = '-'
-    OnClick = Button1Click
     TabOrder = 0
+    OnClick = Button1Click
   end
   object Button2: TButton
     Left = 40
@@ -23,13 +23,13 @@ object Form1: TForm1
     Top = 0
     Width = 32
     Caption = '+'
-    OnClick = Button2Click
     TabOrder = 1
+    OnClick = Button2Click
   end
   object Timer1: TTimer
     Interval = 10
     OnTimer = Timer1Timer
-    left = 160
-    top = 88
+    Left = 160
+    Top = 88
   end
 end

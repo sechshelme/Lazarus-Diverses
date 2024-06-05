@@ -6,7 +6,7 @@
 fpcupdeluxe --> modules --> pas2js-rtl
 
 
-### Für LCL/Form Anwendungen noch dies runterladen un installieren:
+### Für LCL/Form Anwendungen noch dies runterladen und installieren:
 Downloaden: https://github.com/pascaldragon/Pas2JS_Widget
 
 Folgende Package installieren:

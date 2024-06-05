@@ -248,6 +248,7 @@ var rtl = {
   createSafeCallback: function(scope, fn){
     var cb;
     if (typeof(fn)==='string'){
+      if (!scope[fn]) return null;
       if (!scope.hasOwnProperty('$events')) scope.$events = {};
       cb = scope.$events[fn];
       if (cb) return cb;
@@ -258,6 +259,8 @@ var rtl = {
           if (!rtl.handleUncaughtException(err)) throw err;
         }
       };
+    } else if(!fn) {
+      return null;
     } else {
       cb = function(){
         try{
@@ -1564,6 +1567,10 @@ rtl.module("System",[],function () {
     if (Index<1) Index = 1;
     return (Size>0) ? S.substring(Index-1,Index+Size-1) : "";
   };
+  this.Copy$1 = function (S, Index) {
+    if (Index<1) Index = 1;
+    return S.substr(Index-1);
+  };
   this.Writeln = function () {
     var i = 0;
     var l = 0;
@@ -1664,12 +1671,150 @@ rtl.module("SysUtils",["System","JS"],function () {
   this.LongMonthNames = rtl.arraySetLength(null,"",12);
   this.ShortDayNames = rtl.arraySetLength(null,"",7);
   this.LongDayNames = rtl.arraySetLength(null,"",7);
+  this.TStringSplitOptions = {"0": "None", None: 0, "1": "ExcludeEmpty", ExcludeEmpty: 1};
+  rtl.createHelper(this,"TStringHelper",null,function () {
+    this.GetLength = function () {
+      var Result = 0;
+      Result = this.get().length;
+      return Result;
+    };
+    this.IndexOfAny$3 = function (AnyOf, StartIndex) {
+      var Result = 0;
+      Result = $mod.TStringHelper.IndexOfAny$5.call(this,AnyOf,StartIndex,$mod.TStringHelper.GetLength.call(this));
+      return Result;
+    };
+    this.IndexOfAny$5 = function (AnyOf, StartIndex, ACount) {
+      var Result = 0;
+      var i = 0;
+      var L = 0;
+      i = StartIndex + 1;
+      L = (i + ACount) - 1;
+      if (L > $mod.TStringHelper.GetLength.call(this)) L = $mod.TStringHelper.GetLength.call(this);
+      Result = -1;
+      while ((Result === -1) && (i <= L)) {
+        if ($impl.HaveChar(this.get().charAt(i - 1),AnyOf)) Result = i - 1;
+        i += 1;
+      };
+      return Result;
+    };
+    this.IndexOfAnyUnquoted$1 = function (AnyOf, StartQuote, EndQuote, StartIndex) {
+      var Result = 0;
+      Result = $mod.TStringHelper.IndexOfAnyUnquoted$2.call(this,AnyOf,StartQuote,EndQuote,StartIndex,$mod.TStringHelper.GetLength.call(this));
+      return Result;
+    };
+    this.IndexOfAnyUnquoted$2 = function (AnyOf, StartQuote, EndQuote, StartIndex, ACount) {
+      var Result = 0;
+      var I = 0;
+      var L = 0;
+      var Q = 0;
+      Result = -1;
+      L = (StartIndex + ACount) - 1;
+      if (L > $mod.TStringHelper.GetLength.call(this)) L = $mod.TStringHelper.GetLength.call(this);
+      I = StartIndex + 1;
+      Q = 0;
+      if (StartQuote === EndQuote) {
+        while ((Result === -1) && (I <= L)) {
+          if (this.get().charAt(I - 1) === StartQuote) Q = 1 - Q;
+          if ((Q === 0) && $impl.HaveChar(this.get().charAt(I - 1),AnyOf)) Result = I - 1;
+          I += 1;
+        };
+      } else {
+        while ((Result === -1) && (I <= L)) {
+          if (this.get().charAt(I - 1) === StartQuote) {
+            Q += 1}
+           else if ((this.get().charAt(I - 1) === EndQuote) && (Q > 0)) Q -= 1;
+          if ((Q === 0) && $impl.HaveChar(this.get().charAt(I - 1),AnyOf)) Result = I - 1;
+          I += 1;
+        };
+      };
+      return Result;
+    };
+    this.Split$1 = function (Separators) {
+      var Result = [];
+      Result = $mod.TStringHelper.Split$21.call(this,Separators,"\x00","\x00",$mod.TStringHelper.GetLength.call(this) + 1,0);
+      return Result;
+    };
+    var BlockSize = 10;
+    this.Split$21 = function (Separators, AQuoteStart, AQuoteEnd, ACount, Options) {
+      var $Self = this;
+      var Result = [];
+      var S = "";
+      function NextSep(StartIndex) {
+        var Result = 0;
+        if (AQuoteStart !== "\x00") {
+          Result = $mod.TStringHelper.IndexOfAnyUnquoted$1.call({get: function () {
+              return S;
+            }, set: function (v) {
+              S = v;
+            }},Separators,AQuoteStart,AQuoteEnd,StartIndex)}
+         else Result = $mod.TStringHelper.IndexOfAny$3.call({get: function () {
+            return S;
+          }, set: function (v) {
+            S = v;
+          }},Separators,StartIndex);
+        return Result;
+      };
+      function MaybeGrow(Curlen) {
+        if (rtl.length(Result) <= Curlen) Result = rtl.arraySetLength(Result,"",rtl.length(Result) + 10);
+      };
+      var Sep = 0;
+      var LastSep = 0;
+      var Len = 0;
+      var T = "";
+      S = $Self.get();
+      Result = rtl.arraySetLength(Result,"",10);
+      Len = 0;
+      LastSep = 0;
+      Sep = NextSep(0);
+      while ((Sep !== -1) && ((ACount === 0) || (Len < ACount))) {
+        T = $mod.TStringHelper.Substring$1.call($Self,LastSep,Sep - LastSep);
+        if ((T !== "") || !(1 === Options)) {
+          MaybeGrow(Len);
+          Result[Len] = T;
+          Len += 1;
+        };
+        LastSep = Sep + 1;
+        Sep = NextSep(LastSep);
+      };
+      if ((LastSep <= $mod.TStringHelper.GetLength.call($Self)) && ((ACount === 0) || (Len < ACount))) {
+        T = $mod.TStringHelper.Substring.call($Self,LastSep);
+        if ((T !== "") || !(1 === Options)) {
+          MaybeGrow(Len);
+          Result[Len] = T;
+          Len += 1;
+        };
+      };
+      Result = rtl.arraySetLength(Result,"",Len);
+      return Result;
+    };
+    this.Substring = function (AStartIndex) {
+      var Result = "";
+      Result = $mod.TStringHelper.Substring$1.call(this,AStartIndex,$mod.TStringHelper.GetLength.call(this) - AStartIndex);
+      return Result;
+    };
+    this.Substring$1 = function (AStartIndex, ALen) {
+      var Result = "";
+      Result = pas.System.Copy(this.get(),AStartIndex + 1,ALen);
+      return Result;
+    };
+  });
   $mod.$implcode = function () {
     $impl.DefaultShortMonthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     $impl.DefaultLongMonthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     $impl.DefaultShortDayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
     $impl.DefaultLongDayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     $impl.RESpecials = "([\\$\\+\\[\\]\\(\\)\\\\\\.\\*\\^\\?\\|])";
+    $impl.HaveChar = function (AChar, AList) {
+      var Result = false;
+      var I = 0;
+      I = 0;
+      Result = false;
+      while (!Result && (I < rtl.length(AList))) {
+        Result = AList[I] === AChar;
+        I += 1;
+      };
+      return Result;
+    };
   };
   $mod.$init = function () {
     $mod.ShortMonthNames = $impl.DefaultShortMonthNames.slice(0);
@@ -1828,8 +1973,23 @@ rtl.module("BrowserApp",["System","Classes","SysUtils","Types","JS","Web"],funct
     $impl.EnvNames = null;
     $impl.Params = [];
     $impl.ReloadParamStrings = function () {
-      $impl.Params = rtl.arraySetLength($impl.Params,"",1);
+      var ParsLine = "";
+      var Pars = [];
+      var I = 0;
+      ParsLine = pas.System.Copy$1(window.location.hash,2);
+      if (ParsLine !== "") {
+        Pars = pas.SysUtils.TStringHelper.Split$1.call({get: function () {
+            return ParsLine;
+          }, set: function (v) {
+            ParsLine = v;
+          }},["/"])}
+       else Pars = rtl.arraySetLength(Pars,"",0);
+      $impl.Params = rtl.arraySetLength($impl.Params,"",1 + rtl.length(Pars));
       $impl.Params[0] = window.location.pathname;
+      for (var $l = 0, $end = rtl.length(Pars) - 1; $l <= $end; $l++) {
+        I = $l;
+        $impl.Params[1 + I] = Pars[I];
+      };
     };
     $impl.GetParamCount = function () {
       var Result = 0;
@@ -1838,7 +1998,7 @@ rtl.module("BrowserApp",["System","Classes","SysUtils","Types","JS","Web"],funct
     };
     $impl.GetParamStr = function (Index) {
       var Result = "";
-      Result = $impl.Params[Index];
+      if ((Index >= 0) && (Index < rtl.length($impl.Params))) Result = $impl.Params[Index];
       return Result;
     };
     $impl.MyGetEnvironmentVariable = function (EnvVar) {

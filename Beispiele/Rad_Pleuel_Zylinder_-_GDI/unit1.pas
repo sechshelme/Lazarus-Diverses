@@ -72,7 +72,16 @@ var
   p: integer;
   r: single;
   radz, z: TPoint;
+  time1: Double;
+  red1, green1, blue1: Single;
 begin
+  time1 := GetTickCount64 / 1000;
+  red1 := ((sin(time1) + 1) / 2.0) * 255;
+  green1 := ((sin(time1 / 2) + 1) / 2.0) * 255;
+  blue1 := ((sin(time1 / 3) + 1) / 2.0) * 255;
+
+  Canvas.Brush.Color := RGBToColor(Trunc(red1), Trunc(green1), Trunc(blue1));
+  Canvas.Rectangle(0, 0, Width, Height);
 
   l := Width div 3;
   radz.x := Width div 5;
