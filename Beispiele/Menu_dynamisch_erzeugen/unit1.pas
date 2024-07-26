@@ -13,17 +13,17 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
+    SubMenuButton: TButton;
+    MainMenuButton: TButton;
     MenuItem1: TMenuItem;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure SubMenuButtonClick(Sender: TObject);
+    procedure MainMenuButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
     MainMenu: TMainMenu;
-    MenuItemArray: array of TMenuItem;
+    MainMenuItemArray: array of TMenuItem;
     SubMenuItemArray: array of TMenuItem;
     { public declarations }
   end;
@@ -37,7 +37,19 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.MainMenuButtonClick(Sender: TObject);
+var
+  l: integer;
+begin
+  l := Length(MainMenuItemArray);
+  SetLength(MainMenuItemArray, l + 1);
+  MainMenuItemArray[l] := TMenuItem.Create(self);
+  MainMenuItemArray[l].Caption := 'Main-Menu ' + IntToStr(l);
+
+  MainMenu.Items.Add(MainMenuItemArray[l]);  // Wird hinten angefügt
+end;
+
+procedure TForm1.SubMenuButtonClick(Sender: TObject);
 var
   l: integer;
 begin
@@ -46,19 +58,7 @@ begin
   SubMenuItemArray[l] := TMenuItem.Create(self);
   SubMenuItemArray[l].Caption := 'Menu ' + IntToStr(l);
 
-  MenuItemArray[0].Insert(0, SubMenuItemArray[l]);  // Wird vorn angefügt
-end;
-
-procedure TForm1.Button2Click(Sender: TObject);
-var
-  l: integer;
-begin
-  l := Length(MenuItemArray);
-  SetLength(MenuItemArray, l + 1);
-  MenuItemArray[l] := TMenuItem.Create(self);
-  MenuItemArray[l].Caption := 'Sub-Menu ' + IntToStr(l);
-
-  MainMenu.Items.Add(MenuItemArray[l]);  // Wird hinten angefügt
+  MainMenuItemArray[0].Insert(0, SubMenuItemArray[l]);  // Wird vorn angefügt
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -69,6 +69,9 @@ begin
 end;
 
 end.
+
+
+
 procedure MenuCheckAll(Item: TMenuItem);
 var
 P: TMenuItem;
@@ -84,6 +87,4 @@ if P.Items[i] <> Item then begin
 P.Items[i].Checked := False;
 end;
 end;
-
-
 end;
