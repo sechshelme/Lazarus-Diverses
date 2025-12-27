@@ -3,7 +3,7 @@ unit getopt_core;
 interface
 
 const
-  lib_stdio = 'c';
+  libc = 'c';
 
   {$IFDEF FPC}
   {$PACKRECORDS C}
@@ -31,7 +31,7 @@ var
   optopt: longint; cvar;external;
 
 // getopt_core.h
-function getopt(___argc: longint; ___argv: PPchar; __shortopts: PChar): longint; cdecl; external lib_stdio;
+function getopt(___argc: longint; ___argv: PPchar; __shortopts: PChar): longint; cdecl; external libc;
 
 // getopt_ext.h
 function getopt_long(___argc: longint; ___argv: PPchar; __shortopts: PChar; __longopts: Poption; __longind: Plongint): longint; cdecl; external;

@@ -31,16 +31,16 @@ var
   end;
 
 begin
-  FpIOCtl(STDOUT_FILENO, TIOCGWINSZ, @w);
-  WriteLn(w.ws_col, 'x', w.ws_row);
-  WriteLn(w.ws_xpixel, 'x', w.ws_ypixel);
+  //FpIOCtl(STDOUT_FILENO, TIOCGWINSZ, @w);
+  //WriteLn(w.ws_col, 'x', w.ws_row);
+  //WriteLn(w.ws_xpixel, 'x', w.ws_ypixel);
+  //
+  //FpIOCtl(STDOUT_FILENO, TIOCSWINSZ, @w);
+  //WriteLn(w.ws_col, 'x', w.ws_row);
+  //WriteLn(w.ws_xpixel, 'x', w.ws_ypixel);
 
-  FpIOCtl(STDOUT_FILENO, TIOCSWINSZ, @w);
-  WriteLn(w.ws_col, 'x', w.ws_row);
-  WriteLn(w.ws_xpixel, 'x', w.ws_ypixel);
-
-  FpWrite(STDOUT_FILENO, PChar(s), Length(s));
-  FpWrite(STDOUT_FILENO, PChar(s), Length(s));
+//  FpWrite(STDOUT_FILENO, PChar(s), Length(s));
+//  FpWrite(STDOUT_FILENO, PChar(s), Length(s));
 
   FpSignal(SIGWINCH, @resize);
 
