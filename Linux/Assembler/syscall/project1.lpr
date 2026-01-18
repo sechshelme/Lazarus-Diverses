@@ -5,35 +5,47 @@ type
     tv_sec: int64;
     tv_usec: int64;
   end;
+  PTimeVal = ^TTimeVal;
 
-// /usr/include/x86_64-linux-gnu/asm/unistd_64.h
+  // /usr/include/x86_64-linux-gnu/asm/unistd_64.h
 
   {$asmmode intel}
 
-  function ManualGetTimeOfDay(var tv: TTimeVal): int64; assembler; nostackframe;
+  function GetTime(tv: PTimeVal): int64; assembler; nostackframe;
   asm
-           Mov     Rax, 96      // Syscall-Nummer 96 (sys_gettimeofday)
-           Mov     Rdi, tv      // Erster Parameter: Zeiger auf die Struktur
-           Xor     Rsi, Rsi     // Zweiter Parameter: Zeitzone (NULL/0)
-           Syscall          // Den Kernel aufrufen
+           Mov     Rax, 96
+           Mov     Rdi, tv
+           Xor     Rsi, Rsi
+           Syscall
   end;
 
 
+  function Print(c: pchar; len: int64): int64; assembler; nostackframe;
+  asm
+           Mov     Rax, 1
+           Mov     Rdx, len
+           Mov     Rsi, c
+           Mov     Rdi, 1
+           Syscall
+  end;
 
   procedure main;
   var
     start, ende: TTimeVal;
     c: double;
     i: integer;
+  var
+    demo: pchar = 'syscall demo'#10;
   begin
+    Print(demo, Length(demo));
 
-    ManualGetTimeOfDay(start);
+    GetTime(@start);
 
     for i := 0 to 1000000 do begin
       c := cos(c);
     end;
 
-    ManualGetTimeOfDay(ende);
+    GetTime(@ende);
 
     WriteLn('Rechenzeit: ', ende.tv_usec - start.tv_usec);
   end;

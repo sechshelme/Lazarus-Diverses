@@ -1,7 +1,9 @@
 program project1;
 
 uses
-  ctypes,getopt_core, getopt_ext;
+  ctypes,
+  getopt_core,
+  getopt_ext;
 
 var
   opt: cint;
@@ -11,7 +13,7 @@ var
 begin
   repeat
     opt := getopt(argc, argv, 'n:t:help::');
-    WriteLn('opt: ', opt, '   optarg: ',optarg);
+    WriteLn('opt: ', opt, '   optarg: ', optarg);
 
   until opt = -1;
 
